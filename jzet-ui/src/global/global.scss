@@ -1,0 +1,5 @@
+@each $color-name, $value in $palette {
+  .jz-color-#{$color-name} {
+    @include generate-color($color-name);
+  }
+}

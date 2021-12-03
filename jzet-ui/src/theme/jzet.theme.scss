@@ -1,0 +1,78 @@
+@import 'src/theme/jzet.functions.color';
+
+$primary: #3880ff !default;
+$secondary: #3dc2ff !default;
+$tertiary: #5260ff !default;
+$success: #2dd36f !default;
+$warning: #ffc409 !default;
+$danger: #eb445a !default;
+$light: #f4f5f8 !default;
+$medium: #92949c !default;
+$dark: #222428 !default;
+
+$on-primary: #fff;
+$on-secondary: #fff;
+$on-tertiary: #fff;
+$on-success: #fff;
+$on-warning: #000;
+$on-danger: #fff;
+$on-light: #000;
+$on-medium: #fff;
+$on-dark: #fff;
+
+$palette: (
+  primary: (
+    base: $primary,
+    contrast: $on-primary,
+    shade: get-color-shade($primary),
+    tint: get-color-tint($primary),
+  ),
+  secondary: (
+    base: $secondary,
+    contrast: $on-secondary,
+    shade: get-color-shade($secondary),
+    tint: get-color-tint($secondary),
+  ),
+  tertiary: (
+    base: $tertiary,
+    contrast: $on-tertiary,
+    shade: get-color-shade($tertiary),
+    tint: get-color-tint($tertiary),
+  ),
+  success: (
+    base: $success,
+    contrast: $on-success,
+    shade: get-color-shade($success),
+    tint: get-color-tint($success),
+  ),
+  warning: (
+    base: $warning,
+    contrast: $on-warning,
+    shade: get-color-shade($warning),
+    tint: get-color-tint($warning),
+  ),
+  danger: (
+    base: $danger,
+    contrast: $on-danger,
+    shade: get-color-shade($danger),
+    tint: get-color-tint($danger),
+  ),
+  light: (
+    base: $light,
+    contrast: $on-light,
+    shade: get-color-shade($light),
+    tint: get-color-tint($light),
+  ),
+  medium: (
+    base: $medium,
+    contrast: $on-medium,
+    shade: get-color-shade($medium),
+    tint: get-color-tint($medium),
+  ),
+  dark: (
+    base: $dark,
+    contrast: $on-dark,
+    shade: get-color-shade($dark),
+    tint: get-color-tint($dark),
+  ),
+);

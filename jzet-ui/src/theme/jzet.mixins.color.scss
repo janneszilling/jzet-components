@@ -1,0 +1,20 @@
+// Mixin creating classes with color variables
+// --------------------------------------------------------------------------------------------
+@mixin generate-color($color-name) {
+  $value: map-get($palette, $color-name);
+
+  $base: map-get($value, base);
+  $contrast: map-get($value, contrast);
+  $shade: map-get($value, shade);
+  $tint: map-get($value, tint);
+
+  --jz-color-#{$color-name}: #{$base};
+  --jz-color-#{$color-name}-contrast: #{$contrast};
+  --jz-color-#{$color-name}-shade: #{$shade};
+  --jz-color-#{$color-name}-tint: #{$tint};
+
+  --jz-color-base: var(--jz-color-#{$color-name}, #{$base});
+  --jz-color-contrast: var(--jz-color-#{$color-name}-contrast, #{$contrast});
+  --jz-color-shade: var(--jz-color-#{$color-name}-shade, #{$shade});
+  --jz-color-tint: var(--jz-color-#{$color-name}-tint, #{$tint});
+}

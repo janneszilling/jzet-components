@@ -1,0 +1,44 @@
+:host {
+  display: inline-block;
+
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  user-select: none;
+  font-kerning: none;
+}
+
+.button {
+  background-color: var(--background-color);
+  color: var(--color);
+  border-width: var(--border-width);
+  padding: 12px 24px;
+  border-radius: 4px;
+  outline: none;
+  font-size: 1em;
+  border-color: transparent;
+  font-weight: 500;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+:host(.button-solid) {
+  --background-color: var(--jz-color-base);
+  --color: var(--jz-color-contrast);
+}
+
+:host(.button-outline) {
+  --border-width: 2;
+  --border-color: var(--jz-color-base);
+  --background-color: transparent;
+  --color: var(--jz-color-base);
+}
+
+:host(.button-minimal) {
+  --border-width: 0;
+  --background-color: transparent;
+  --color: var(--jz-color-base);
+}
