@@ -7,6 +7,14 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Color } from "./interface";
 export namespace Components {
+    interface JzetAvatar {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        "imgURL"?: string;
+        "name": string;
+    }
     interface JzetButton {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -41,6 +49,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLJzetAvatarElement extends Components.JzetAvatar, HTMLStencilElement {
+    }
+    var HTMLJzetAvatarElement: {
+        prototype: HTMLJzetAvatarElement;
+        new (): HTMLJzetAvatarElement;
+    };
     interface HTMLJzetButtonElement extends Components.JzetButton, HTMLStencilElement {
     }
     var HTMLJzetButtonElement: {
@@ -54,11 +68,20 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "jzet-avatar": HTMLJzetAvatarElement;
         "jzet-button": HTMLJzetButtonElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface JzetAvatar {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        "imgURL"?: string;
+        "name"?: string;
+    }
     interface JzetButton {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -92,6 +115,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "jzet-avatar": JzetAvatar;
         "jzet-button": JzetButton;
         "my-component": MyComponent;
     }
@@ -100,6 +124,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "jzet-avatar": LocalJSX.JzetAvatar & JSXBase.HTMLAttributes<HTMLJzetAvatarElement>;
             "jzet-button": LocalJSX.JzetButton & JSXBase.HTMLAttributes<HTMLJzetButtonElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
