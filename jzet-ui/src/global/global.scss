@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @each $color-name, $value in $palette {
   .jz-color-#{$color-name} {
     @include generate-color($color-name);

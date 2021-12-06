@@ -10,7 +10,29 @@
     <link rel="stylesheet" href="/build/jzet-ui.css" />
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-    <jzet-button fill="solid">Click Here</jzet-button>
+    <style>
+      h1 {
+        font-family: 'Inter', sans-serif;
+        margin: 20px 0;
+        padding: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    </style>
+    <h1>Avatar</h1>
+    <h1>Buttons</h1>
+    <div class="container">
+      <jzet-button fill="solid" appearance="primary">Button</jzet-button>
+      <jzet-button fill="solid" appearance="secondary">Button</jzet-button>
+      <jzet-button fill="solid" disabled>Button</jzet-button>
+      <jzet-button fill="outline" appearance="primary">Button</jzet-button>
+      <jzet-button fill="outline" appearance="secondary">Button</jzet-button>
+      <jzet-button fill="minimal" appearance="primary">Button</jzet-button>
+      <jzet-button fill="minimal" appearance="secondary">Button</jzet-button>
+    </div>
   </body>
 </html>

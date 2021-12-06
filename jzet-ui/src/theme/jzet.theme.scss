@@ -1,24 +1,26 @@
 @import 'src/theme/jzet.functions.color';
 
-$primary: #3880ff !default;
-$secondary: #3dc2ff !default;
+$primary: #5c33ff !default;
+$secondary: #d6ccff !default;
 $tertiary: #5260ff !default;
-$success: #2dd36f !default;
+$success: #66ddad !default;
 $warning: #ffc409 !default;
 $danger: #eb445a !default;
 $light: #f4f5f8 !default;
 $medium: #92949c !default;
 $dark: #222428 !default;
+$disabled: #d9d9d8 !default;
 
-$on-primary: #fff;
-$on-secondary: #fff;
+$on-primary: #d6ccff;
+$on-secondary: #5c33ff;
 $on-tertiary: #fff;
-$on-success: #fff;
+$on-success: #005438;
 $on-warning: #000;
 $on-danger: #fff;
 $on-light: #000;
 $on-medium: #fff;
 $on-dark: #fff;
+$on-disabled: #aeaeae;
 
 $palette: (
   primary: (

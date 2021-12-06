@@ -38,8 +38,8 @@ export class JzetButton {
   render() {
     const { fill, disabled, hasIconOnly, appearance } = this;
     return (
-      <Host class={{ [`jz-color-${appearance}`]: true, [`button-${fill}`]: true, 'button-has-icon-only': hasIconOnly, 'button-disabled': disabled }} disabled={disabled}>
-        <button class="button">
+      <Host class={{ [`jz-color-${appearance}`]: true, [`button-${fill}`]: true, 'button-has-icon-only': hasIconOnly }} disabled={disabled}>
+        <button class={{ 'button': true, 'button-disabled': disabled }}>
           <slot></slot>
         </button>
       </Host>
