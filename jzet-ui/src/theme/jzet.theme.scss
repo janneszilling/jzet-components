@@ -1,26 +1,31 @@
 @import 'src/theme/jzet.functions.color';
 
 $primary: #5c33ff !default;
-$secondary: #d6ccff !default;
-$tertiary: #5260ff !default;
-$success: #66ddad !default;
-$warning: #ffc409 !default;
-$danger: #eb445a !default;
-$light: #f4f5f8 !default;
-$medium: #92949c !default;
-$dark: #222428 !default;
-$disabled: #d9d9d8 !default;
+$secondary: #b2ff66 !default;
+$tertiary: #371e99 !default;
+$success: #a3f1d9 !default;
+$warning: #f8c59d !default;
+$danger: #f1a3a3 !default;
+$notification: #fd595a !default;
+$light: #efeeee !default;
+$dark: #262b30 !default;
+$light-disabled: #f5f5f5 !default;
+$dark-disabled: #1f2227 !default;
 
 $on-primary: #d6ccff;
-$on-secondary: #5c33ff;
-$on-tertiary: #fff;
-$on-success: #005438;
-$on-warning: #000;
-$on-danger: #fff;
-$on-light: #000;
-$on-medium: #fff;
-$on-dark: #fff;
-$on-disabled: #aeaeae;
+$on-secondary: #1b1d1e;
+$on-tertiary: #d6ccff;
+$on-success: #0e8560;
+$on-warning: #98541e;
+$on-danger: #850e0e;
+$on-notification: #fafeff;
+$on-light: #a6a8ad;
+$on-dark: #848b8f;
+$on-light-disabled: #a6a8ad;
+$on-dark-disabled: #848b8f;
+
+$on-dark-surface: #82868a;
+$on-light-surface: #82868a;
 
 $palette: (
   primary: (
@@ -59,17 +64,17 @@ $palette: (
     shade: get-color-shade($danger),
     tint: get-color-tint($danger),
   ),
+  notification: (
+    base: $notification,
+    contrast: $on-notification,
+    shade: get-color-shade($notification),
+    tint: get-color-tint($notification),
+  ),
   light: (
     base: $light,
     contrast: $on-light,
     shade: get-color-shade($light),
     tint: get-color-tint($light),
-  ),
-  medium: (
-    base: $medium,
-    contrast: $on-medium,
-    shade: get-color-shade($medium),
-    tint: get-color-tint($medium),
   ),
   dark: (
     base: $dark,

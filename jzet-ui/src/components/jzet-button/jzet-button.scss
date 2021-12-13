@@ -22,15 +22,17 @@
   outline: none;
   font-size: 1rem;
   border-color: var(--border-color);
-  font-weight: 400;
+  font-weight: 500;
   font-family: 'Inter', sans-serif;
   cursor: pointer;
+  transition: all 0.2s ease-out;
 }
 
 .button-disabled {
-  background-color: $disabled !important;
-  color: $on-disabled !important;
+  background-color: $light-disabled !important;
+  color: $on-light-disabled !important;
   cursor: default;
+  pointer-events: none;
 }
 
 :host(.button-solid) {
@@ -40,7 +42,7 @@
 }
 
 :host(.button-outline) {
-  --border-width: 0.125rem;
+  --border-width: 0.1rem;
   --border-color: var(--jz-color-base);
   --background-color: transparent;
   --color: var(--jz-color-base);
@@ -50,4 +52,17 @@
   --border-width: 0rem;
   --background-color: transparent;
   --color: var(--jz-color-base);
+}
+
+:host(.button-solid:hover) {
+  --background-color: var(--jz-color-shade);
+}
+
+:host(.button-outline:hover) {
+  --border-color: var(--jz-color-shade);
+  --color: var(--jz-color-shade);
+}
+
+:host(.button-minimal:hover) {
+  --color: var(--jz-color-shade);
 }

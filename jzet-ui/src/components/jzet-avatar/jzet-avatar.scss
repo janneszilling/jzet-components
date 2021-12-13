@@ -11,6 +11,18 @@
   font-kerning: none;
 }
 
+:host([small]) .avatar {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+
+:host([large]) .avatar {
+  width: 5rem;
+  height: 5rem;
+  font-size: 2rem;
+}
+
 .avatar {
   display: flex;
   justify-content: center;

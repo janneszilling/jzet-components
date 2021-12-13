@@ -19,6 +19,8 @@ export class JzetAvatar {
 
   @Prop({ attribute: 'img-url' }) readonly imgURL?: string = '';
 
+  @Prop({ reflect: true }) readonly size?: 'small' | 'large';
+
   componentWillLoad() {
     this.getInitials(this.name);
   }
@@ -29,9 +31,9 @@ export class JzetAvatar {
   }
 
   render() {
-    const { appearance, initials, imgURL, name } = this;
+    const { appearance, initials, imgURL, name, size } = this;
     return (
-      <Host class={{ [`jz-color-${appearance}`]: true }}>
+      <Host class={{ [`jz-color-${appearance}`]: true }} {...size}>
         <div class="avatar" title={name}>
           {imgURL !== '' ? <img src={imgURL} alt={initials}></img> : <slot>{initials}</slot>}
         </div>

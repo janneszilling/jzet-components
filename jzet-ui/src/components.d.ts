@@ -14,6 +14,7 @@ export namespace Components {
         "appearance"?: Color;
         "imgURL"?: string;
         "name": string;
+        "size"?: 'small' | 'large';
     }
     interface JzetButton {
         /**
@@ -81,6 +82,7 @@ declare namespace LocalJSX {
         "appearance"?: Color;
         "imgURL"?: string;
         "name"?: string;
+        "size"?: 'small' | 'large';
     }
     interface JzetButton {
         /**
