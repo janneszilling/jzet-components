@@ -16,6 +16,13 @@ export namespace Components {
         "name": string;
         "size"?: 'small' | 'large';
     }
+    interface JzetBadge {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        "form"?: 'circle' | 'pill';
+    }
     interface JzetButton {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -56,6 +63,12 @@ declare global {
         prototype: HTMLJzetAvatarElement;
         new (): HTMLJzetAvatarElement;
     };
+    interface HTMLJzetBadgeElement extends Components.JzetBadge, HTMLStencilElement {
+    }
+    var HTMLJzetBadgeElement: {
+        prototype: HTMLJzetBadgeElement;
+        new (): HTMLJzetBadgeElement;
+    };
     interface HTMLJzetButtonElement extends Components.JzetButton, HTMLStencilElement {
     }
     var HTMLJzetButtonElement: {
@@ -70,6 +83,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "jzet-avatar": HTMLJzetAvatarElement;
+        "jzet-badge": HTMLJzetBadgeElement;
         "jzet-button": HTMLJzetButtonElement;
         "my-component": HTMLMyComponentElement;
     }
@@ -83,6 +97,13 @@ declare namespace LocalJSX {
         "imgURL"?: string;
         "name"?: string;
         "size"?: 'small' | 'large';
+    }
+    interface JzetBadge {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        "form"?: 'circle' | 'pill';
     }
     interface JzetButton {
         /**
@@ -118,6 +139,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "jzet-avatar": JzetAvatar;
+        "jzet-badge": JzetBadge;
         "jzet-button": JzetButton;
         "my-component": MyComponent;
     }
@@ -127,6 +149,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "jzet-avatar": LocalJSX.JzetAvatar & JSXBase.HTMLAttributes<HTMLJzetAvatarElement>;
+            "jzet-badge": LocalJSX.JzetBadge & JSXBase.HTMLAttributes<HTMLJzetBadgeElement>;
             "jzet-button": LocalJSX.JzetButton & JSXBase.HTMLAttributes<HTMLJzetButtonElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
