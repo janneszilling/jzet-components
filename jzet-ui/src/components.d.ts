@@ -41,6 +41,28 @@ export namespace Components {
          */
         "fill"?: 'minimal' | 'outline' | 'solid';
     }
+    interface JzetCheckbox {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the checkbox is selected.
+         */
+        "checked": boolean;
+        /**
+          * If `true`, the user cannot interact with the checkbox.
+         */
+        "disabled": boolean;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * The value of the checkbox does not mean if it's checked or not, use the `checked` property for that.  The value of a checkbox is analogous to the value of an `<input type="checkbox">`, it's only used when the checkbox participates in a native `<form>`.
+         */
+        "value": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -75,6 +97,12 @@ declare global {
         prototype: HTMLJzetButtonElement;
         new (): HTMLJzetButtonElement;
     };
+    interface HTMLJzetCheckboxElement extends Components.JzetCheckbox, HTMLStencilElement {
+    }
+    var HTMLJzetCheckboxElement: {
+        prototype: HTMLJzetCheckboxElement;
+        new (): HTMLJzetCheckboxElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -85,6 +113,7 @@ declare global {
         "jzet-avatar": HTMLJzetAvatarElement;
         "jzet-badge": HTMLJzetBadgeElement;
         "jzet-button": HTMLJzetButtonElement;
+        "jzet-checkbox": HTMLJzetCheckboxElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -123,6 +152,28 @@ declare namespace LocalJSX {
          */
         "fill"?: 'minimal' | 'outline' | 'solid';
     }
+    interface JzetCheckbox {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the checkbox is selected.
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the user cannot interact with the checkbox.
+         */
+        "disabled"?: boolean;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * The value of the checkbox does not mean if it's checked or not, use the `checked` property for that.  The value of a checkbox is analogous to the value of an `<input type="checkbox">`, it's only used when the checkbox participates in a native `<form>`.
+         */
+        "value"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -141,6 +192,7 @@ declare namespace LocalJSX {
         "jzet-avatar": JzetAvatar;
         "jzet-badge": JzetBadge;
         "jzet-button": JzetButton;
+        "jzet-checkbox": JzetCheckbox;
         "my-component": MyComponent;
     }
 }
@@ -151,6 +203,7 @@ declare module "@stencil/core" {
             "jzet-avatar": LocalJSX.JzetAvatar & JSXBase.HTMLAttributes<HTMLJzetAvatarElement>;
             "jzet-badge": LocalJSX.JzetBadge & JSXBase.HTMLAttributes<HTMLJzetBadgeElement>;
             "jzet-button": LocalJSX.JzetButton & JSXBase.HTMLAttributes<HTMLJzetButtonElement>;
+            "jzet-checkbox": LocalJSX.JzetCheckbox & JSXBase.HTMLAttributes<HTMLJzetCheckboxElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

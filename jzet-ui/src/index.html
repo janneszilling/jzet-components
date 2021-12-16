@@ -11,6 +11,18 @@
   </head>
   <body>
     <style>
+      html {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      * {
+        box-sizing: inherit;
+      }
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
       body {
         margin: 40px;
       }
@@ -65,6 +77,13 @@
       <jzet-button fill="solid" appearance="success">Button</jzet-button>
       <jzet-button fill="solid" appearance="warning">Button</jzet-button>
       <jzet-button fill="solid" appearance="danger">Button</jzet-button>
+    </div>
+    <h1>Checkbox</h1>
+    <div class="container">
+      <jzet-checkbox appearance="primary">Checkbox Primary</jzet-checkbox>
+      <jzet-checkbox appearance="secondary">Checkbox Secondary</jzet-checkbox>
+      <jzet-checkbox appearance="tertiary">Checkbox Tertiary</jzet-checkbox>
+      <jzet-checkbox appearance="primary" disabled>Checkbox Disabled</jzet-checkbox>
     </div>
   </body>
 </html>
