@@ -37,6 +37,12 @@
         justify-content: space-between;
         align-items: flex-start;
       }
+      .circle {
+        background-color: #d6ccff;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+      }
     </style>
     <h1>Avatar</h1>
     <div class="container">
@@ -84,6 +90,28 @@
       <jzet-checkbox appearance="secondary">Checkbox Secondary</jzet-checkbox>
       <jzet-checkbox appearance="tertiary">Checkbox Tertiary</jzet-checkbox>
       <jzet-checkbox appearance="primary" disabled>Checkbox Disabled</jzet-checkbox>
+    </div>
+    <h1>Chip</h1>
+    <div class="container">
+      <jzet-chip appearance="primary">Primary</jzet-chip>
+      <jzet-chip appearance="secondary">Secondary </jzet-chip>
+      <jzet-chip appearance="tertiary">Tertiary</jzet-chip>
+      <jzet-chip appearance="success">Success</jzet-chip>
+      <jzet-chip appearance="warning">Warning</jzet-chip>
+      <jzet-chip appearance="danger">Danger</jzet-chip>
+      <jzet-chip appearance="primary"
+        >Slot start
+        <div class="circle" slot="start"></div
+      ></jzet-chip>
+      <jzet-chip appearance="secondary"
+        >Slot end
+        <p slot="end">-></p></jzet-chip
+      >
+      <jzet-chip appearance="tertiary"
+        >Both Slots
+        <div class="circle" slot="start"></div>
+        <p slot="end">-></p></jzet-chip
+      >
     </div>
   </body>
 </html>

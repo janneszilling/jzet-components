@@ -63,6 +63,12 @@ export namespace Components {
          */
         "value": string;
     }
+    interface JzetChip {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -103,6 +109,12 @@ declare global {
         prototype: HTMLJzetCheckboxElement;
         new (): HTMLJzetCheckboxElement;
     };
+    interface HTMLJzetChipElement extends Components.JzetChip, HTMLStencilElement {
+    }
+    var HTMLJzetChipElement: {
+        prototype: HTMLJzetChipElement;
+        new (): HTMLJzetChipElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -114,6 +126,7 @@ declare global {
         "jzet-badge": HTMLJzetBadgeElement;
         "jzet-button": HTMLJzetButtonElement;
         "jzet-checkbox": HTMLJzetCheckboxElement;
+        "jzet-chip": HTMLJzetChipElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -174,6 +187,12 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface JzetChip {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -193,6 +212,7 @@ declare namespace LocalJSX {
         "jzet-badge": JzetBadge;
         "jzet-button": JzetButton;
         "jzet-checkbox": JzetCheckbox;
+        "jzet-chip": JzetChip;
         "my-component": MyComponent;
     }
 }
@@ -204,6 +224,7 @@ declare module "@stencil/core" {
             "jzet-badge": LocalJSX.JzetBadge & JSXBase.HTMLAttributes<HTMLJzetBadgeElement>;
             "jzet-button": LocalJSX.JzetButton & JSXBase.HTMLAttributes<HTMLJzetButtonElement>;
             "jzet-checkbox": LocalJSX.JzetCheckbox & JSXBase.HTMLAttributes<HTMLJzetCheckboxElement>;
+            "jzet-chip": LocalJSX.JzetChip & JSXBase.HTMLAttributes<HTMLJzetChipElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
