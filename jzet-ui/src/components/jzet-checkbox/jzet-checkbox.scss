@@ -1,0 +1,126 @@
+:host {
+  width: fit-content;
+  display: flex;
+  vertical-align: middle;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+:host(.checkbox-disabled) .checkbox {
+  --background: transparent;
+  --border: #{$light-disabled};
+  --border-hover: #{$light-disabled};
+  --border-active: #{$light-disabled};
+  --tick: #{$on-light-disabled};
+
+  input {
+    box-shadow: inset 0 0 0 1px var(--b, var(--border));
+    cursor: default;
+  }
+}
+
+:host(.checkbox-disabled) .checkbox:checked {
+  --background: #{$light-disabled};
+  --border: #{$light-disabled};
+  --border-hover: #{$light-disabled};
+  --border-active: #{$light-disabled};
+  --tick: #{$on-light-disabled};
+
+  input {
+    box-shadow: inset 0 0 0 1px var(--b, var(--border));
+    cursor: default;
+  }
+}
+
+:host(.checkbox-disabled) label {
+  cursor: default;
+  pointer-events: none;
+  color: #{$on-light-disabled};
+}
+
+.checkbox {
+  --background: transparent;
+  --border: #{$light};
+  --border-hover: #{get-color-shade($light)};
+  --border-active: var(--jz-color-base);
+  --tick: var(--jz-color-contrast);
+  position: relative;
+  input,
+  svg {
+    width: 1.375rem;
+    height: 1.375rem;
+    display: block;
+  }
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    outline: none;
+    background: var(--background);
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: box-shadow 0.3s;
+    box-shadow: inset 0 0 0 var(--s, 1px) var(--b, var(--border));
+    &:hover {
+      --s: 2px;
+      --b: var(--border-hover);
+    }
+    &:checked {
+      --b: var(--border-active);
+    }
+  }
+  svg {
+    pointer-events: none;
+    fill: none;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: var(--stroke, var(--border-active));
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.375rem;
+    height: 1.375rem;
+    transform: scale(var(--scale, 1)) translateZ(0);
+  }
+  &.bounce {
+    --stroke: var(--tick);
+    input {
+      &:checked {
+        --s: 0.688rem;
+        & + svg {
+          animation: bounce 0.4s linear forwards 0.2s;
+        }
+      }
+    }
+    svg {
+      --scale: 0;
+    }
+  }
+}
+
+@keyframes bounce {
+  50% {
+    transform: scale(1.2);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+label {
+  padding: 0 1rem 0 0;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  user-select: none;
+  cursor: pointer;
+}
