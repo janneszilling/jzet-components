@@ -2,14 +2,14 @@
   display: inline-block;
 }
 
-:host(.pill) {
+:host(.jz-pill) {
   --width: fit-content;
   --height: 1rem;
   --padding: 0.25rem 0.5rem;
   --border-radius: 1rem;
 }
 
-:host(.circle) {
+:host(.jz-circle) {
   --width: 1rem;
   --height: 1rem;
   --padding: 0.25rem;

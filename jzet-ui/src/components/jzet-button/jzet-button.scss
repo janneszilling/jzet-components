@@ -29,8 +29,8 @@
 }
 
 .button-disabled {
-  background-color: $light-disabled !important;
-  color: $on-light-disabled !important;
+  background-color: #{$light-disabled};
+  color: #{$on-light-disabled};
   cursor: default;
   pointer-events: none;
 }
