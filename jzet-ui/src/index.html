@@ -43,6 +43,9 @@
         height: 1rem;
         border-radius: 50%;
       }
+      .turn-up {
+        transform: rotate(-90deg);
+      }
     </style>
     <h1>Avatar</h1>
     <div class="container">
@@ -111,6 +114,25 @@
         >Both Slots
         <div class="circle" slot="start"></div>
         <p slot="end">-></p></jzet-chip
+      >
+    </div>
+    <h1>Filepicker</h1>
+    <div class="container">
+      <jzet-filepicker
+        ><p class="turn-up" slot="start">-></p>
+        Upload</jzet-filepicker
+      >
+      <jzet-filepicker appearance="secondary"
+        ><p class="turn-up" slot="start">-></p>
+        Upload</jzet-filepicker
+      >
+      <jzet-filepicker appearance="tertiary"
+        ><p class="turn-up" slot="start">-></p>
+        Upload</jzet-filepicker
+      >
+      <jzet-filepicker disabled
+        ><p class="turn-up" slot="start">-></p>
+        Upload</jzet-filepicker
       >
     </div>
   </body>

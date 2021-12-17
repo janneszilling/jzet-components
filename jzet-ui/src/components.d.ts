@@ -69,6 +69,20 @@ export namespace Components {
          */
         "appearance"?: Color;
     }
+    interface JzetFilepicker {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the checkbox.
+         */
+        "disabled": boolean;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -115,6 +129,12 @@ declare global {
         prototype: HTMLJzetChipElement;
         new (): HTMLJzetChipElement;
     };
+    interface HTMLJzetFilepickerElement extends Components.JzetFilepicker, HTMLStencilElement {
+    }
+    var HTMLJzetFilepickerElement: {
+        prototype: HTMLJzetFilepickerElement;
+        new (): HTMLJzetFilepickerElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -127,6 +147,7 @@ declare global {
         "jzet-button": HTMLJzetButtonElement;
         "jzet-checkbox": HTMLJzetCheckboxElement;
         "jzet-chip": HTMLJzetChipElement;
+        "jzet-filepicker": HTMLJzetFilepickerElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -193,6 +214,20 @@ declare namespace LocalJSX {
          */
         "appearance"?: Color;
     }
+    interface JzetFilepicker {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the checkbox.
+         */
+        "disabled"?: boolean;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -213,6 +248,7 @@ declare namespace LocalJSX {
         "jzet-button": JzetButton;
         "jzet-checkbox": JzetCheckbox;
         "jzet-chip": JzetChip;
+        "jzet-filepicker": JzetFilepicker;
         "my-component": MyComponent;
     }
 }
@@ -225,6 +261,7 @@ declare module "@stencil/core" {
             "jzet-button": LocalJSX.JzetButton & JSXBase.HTMLAttributes<HTMLJzetButtonElement>;
             "jzet-checkbox": LocalJSX.JzetCheckbox & JSXBase.HTMLAttributes<HTMLJzetCheckboxElement>;
             "jzet-chip": LocalJSX.JzetChip & JSXBase.HTMLAttributes<HTMLJzetChipElement>;
+            "jzet-filepicker": LocalJSX.JzetFilepicker & JSXBase.HTMLAttributes<HTMLJzetFilepickerElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

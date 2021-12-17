@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+:host(.filepicker-disabled) [type='file'] + label {
+  background-color: #{$light-disabled};
+  color: #{$on-light-disabled};
+  cursor: default;
+  pointer-events: none;
+}
+
+[type='file'] {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+[type='file'] + label {
+  background-color: var(--jz-color-base);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--jz-color-contrast);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  padding: 0.625rem 1.125rem;
+  transition: all 0.2s ease-out;
+  position: relative;
+
+  slot {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    background-color: var(--jz-color-shade);
+  }
+}
+
+::slotted([slot='start']) {
+  margin: 0 0.25rem 0 0;
+}

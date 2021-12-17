@@ -17,7 +17,7 @@ export class JzetBadge {
   render() {
     const { appearance, form } = this;
     return (
-      <Host class={{ [`jz-color-${appearance}`]: true, [form]: true }}>
+      <Host class={{ [`jz-color-${appearance}`]: true, [`jz-${form}`]: true }}>
         <div class="badge">
           <slot></slot>
         </div>

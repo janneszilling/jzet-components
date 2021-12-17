@@ -92,7 +92,7 @@
       &:checked {
         --s: 0.688rem;
         & + svg {
-          animation: bounce 0.4s linear forwards 0.2s;
+          animation: bounce 0.2s linear forwards;
         }
       }
     }
@@ -103,12 +103,6 @@
 }
 
 @keyframes bounce {
-  50% {
-    transform: scale(1.2);
-  }
-  75% {
-    transform: scale(0.9);
-  }
   100% {
     transform: scale(1);
   }
