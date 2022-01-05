@@ -35,7 +35,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
       }
       .circle {
         background-color: #d6ccff;
@@ -45,6 +45,12 @@
       }
       .turn-up {
         transform: rotate(-90deg);
+      }
+      .mobile-full {
+        width: 375px;
+      }
+      .mobile-full #jz-input-block {
+        margin: 20px;
       }
     </style>
     <h1>Avatar</h1>
@@ -134,6 +140,17 @@
         ><p class="turn-up" slot="start">-></p>
         Upload</jzet-filepicker
       >
+    </div>
+    <h1>Input</h1>
+    <div class="container">
+      <jzet-input class="light-mode" required></jzet-input>
+      <jzet-input class="light-mode" placeholder=" "><p slot="label">Textfeld</p></jzet-input>
+      <jzet-input class="light-mode" appearance="secondary" type="email" placeholder="username@gmail.com"><p slot="label">Email</p></jzet-input>
+      <jzet-input class="light-mode" appearance="tertiary"><p slot="label">Textfeld</p></jzet-input>
+      <jzet-input class="light-mode" disabled><p slot="label">Disabled Input</p></jzet-input>
+    </div>
+    <div class="mobile-full">
+      <jzet-input id="jz-input-block" class="light-mode" appearance="primary" placeholder=" " block required><p slot="label">Firstname</p></jzet-input>
     </div>
   </body>
 </html>

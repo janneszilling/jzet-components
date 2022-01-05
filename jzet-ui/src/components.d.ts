@@ -83,6 +83,28 @@ export namespace Components {
          */
         "name": string;
     }
+    interface JzetInput {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the input.
+         */
+        "disabled": boolean;
+        /**
+          * Set to `"block"` for a full-width button.
+         */
+        "expand"?: 'default' | 'block';
+        "label": string;
+        "placeholder": string;
+        /**
+          * If `true`, the input is required.
+         */
+        "required": boolean;
+        "type": "text";
+        "value": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -135,6 +157,12 @@ declare global {
         prototype: HTMLJzetFilepickerElement;
         new (): HTMLJzetFilepickerElement;
     };
+    interface HTMLJzetInputElement extends Components.JzetInput, HTMLStencilElement {
+    }
+    var HTMLJzetInputElement: {
+        prototype: HTMLJzetInputElement;
+        new (): HTMLJzetInputElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -148,6 +176,7 @@ declare global {
         "jzet-checkbox": HTMLJzetCheckboxElement;
         "jzet-chip": HTMLJzetChipElement;
         "jzet-filepicker": HTMLJzetFilepickerElement;
+        "jzet-input": HTMLJzetInputElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -228,6 +257,29 @@ declare namespace LocalJSX {
          */
         "name"?: string;
     }
+    interface JzetInput {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the input.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set to `"block"` for a full-width button.
+         */
+        "expand"?: 'default' | 'block';
+        "label"?: string;
+        "onValueChanged"?: (event: CustomEvent<string>) => void;
+        "placeholder"?: string;
+        /**
+          * If `true`, the input is required.
+         */
+        "required"?: boolean;
+        "type"?: "text";
+        "value"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -249,6 +301,7 @@ declare namespace LocalJSX {
         "jzet-checkbox": JzetCheckbox;
         "jzet-chip": JzetChip;
         "jzet-filepicker": JzetFilepicker;
+        "jzet-input": JzetInput;
         "my-component": MyComponent;
     }
 }
@@ -262,6 +315,7 @@ declare module "@stencil/core" {
             "jzet-checkbox": LocalJSX.JzetCheckbox & JSXBase.HTMLAttributes<HTMLJzetCheckboxElement>;
             "jzet-chip": LocalJSX.JzetChip & JSXBase.HTMLAttributes<HTMLJzetChipElement>;
             "jzet-filepicker": LocalJSX.JzetFilepicker & JSXBase.HTMLAttributes<HTMLJzetFilepickerElement>;
+            "jzet-input": LocalJSX.JzetInput & JSXBase.HTMLAttributes<HTMLJzetInputElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
