@@ -14,7 +14,7 @@ export class JzetInput {
   @Prop({ reflect: true }) readonly appearance?: Color = 'primary';
 
   @Prop({ reflect: true }) readonly label: string;
-  @Prop({ reflect: true }) readonly placeholder: string;
+  @Prop({ reflect: true }) readonly placeholder: string = ' ';
   @Prop({ reflect: true, mutable: true }) value: string;
   @Prop() readonly type = 'text';
 
