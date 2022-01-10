@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+}
+
+::slotted([slot='left']) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 0.4rem;
+}
+
+::slotted([slot='right']) {
+  margin-left: 0.4rem;
+}

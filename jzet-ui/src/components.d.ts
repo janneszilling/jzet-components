@@ -105,6 +105,16 @@ export namespace Components {
         "type": "text";
         "value": string;
     }
+    interface JzetItem {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the item.
+         */
+        "disabled": boolean;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -163,6 +173,12 @@ declare global {
         prototype: HTMLJzetInputElement;
         new (): HTMLJzetInputElement;
     };
+    interface HTMLJzetItemElement extends Components.JzetItem, HTMLStencilElement {
+    }
+    var HTMLJzetItemElement: {
+        prototype: HTMLJzetItemElement;
+        new (): HTMLJzetItemElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -177,6 +193,7 @@ declare global {
         "jzet-chip": HTMLJzetChipElement;
         "jzet-filepicker": HTMLJzetFilepickerElement;
         "jzet-input": HTMLJzetInputElement;
+        "jzet-item": HTMLJzetItemElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -280,6 +297,16 @@ declare namespace LocalJSX {
         "type"?: "text";
         "value"?: string;
     }
+    interface JzetItem {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the item.
+         */
+        "disabled"?: boolean;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -302,6 +329,7 @@ declare namespace LocalJSX {
         "jzet-chip": JzetChip;
         "jzet-filepicker": JzetFilepicker;
         "jzet-input": JzetInput;
+        "jzet-item": JzetItem;
         "my-component": MyComponent;
     }
 }
@@ -316,6 +344,7 @@ declare module "@stencil/core" {
             "jzet-chip": LocalJSX.JzetChip & JSXBase.HTMLAttributes<HTMLJzetChipElement>;
             "jzet-filepicker": LocalJSX.JzetFilepicker & JSXBase.HTMLAttributes<HTMLJzetFilepickerElement>;
             "jzet-input": LocalJSX.JzetInput & JSXBase.HTMLAttributes<HTMLJzetInputElement>;
+            "jzet-item": LocalJSX.JzetItem & JSXBase.HTMLAttributes<HTMLJzetItemElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
