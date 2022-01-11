@@ -96,6 +96,7 @@ export namespace Components {
           * Set to `"block"` for a full-width button.
          */
         "expand"?: 'default' | 'block';
+        "indicator": boolean;
         "label": string;
         "placeholder": string;
         /**
@@ -287,6 +288,7 @@ declare namespace LocalJSX {
           * Set to `"block"` for a full-width button.
          */
         "expand"?: 'default' | 'block';
+        "indicator"?: boolean;
         "label"?: string;
         "onValueChanged"?: (event: CustomEvent<string>) => void;
         "placeholder"?: string;

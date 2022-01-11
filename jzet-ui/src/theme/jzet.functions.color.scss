@@ -9,3 +9,9 @@
 @function get-color-tint($color) {
   @return mix(#fff, $color, 10%);
 }
+
+// Gets specific color and creates the rgba
+// --------------------------------------------------------------------------------------------
+@function get-color-rgba($color, $alpha: 0.5) {
+  @return rgba($color, $alpha);
+}

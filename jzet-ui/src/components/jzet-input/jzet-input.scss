@@ -3,13 +3,53 @@
 }
 
 :host(.dark-mode) {
-  --border-color: #{$light};
+  --border-color: #{get-color-rgba($light, 0.1)};
+  --background-color: #{$dark};
   --color: #{$light};
+
+  ::placeholder {
+    color: get-color-rgba($light, 0.5);
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: get-color-rgba($light, 0.5);
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: redget-color-rgba($light, 0.5);
+  }
+}
+
+:host(.dark-mode) ::slotted(*) {
+  color: #{$on-dark};
 }
 
 :host(.light-mode) {
-  --border-color: #{$dark};
+  --border-color: #{get-color-rgba($dark, 0.1)};
+  --background-color: #{$light};
   --color: #{$dark};
+
+  ::placeholder {
+    color: get-color-rgba($dark, 0.4);
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: get-color-rgba($dark, 0.4);
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: redget-color-rgba($dark, 0.4);
+  }
+}
+
+:host(.light-mode) ::slotted(*) {
+  color: #{$on-light};
 }
 
 :host(.input-disabled) {
@@ -62,11 +102,11 @@ input {
   transition: all 0.3s;
 
   &:hover {
-    --border-width: 2px;
+    --border-width: 1px;
     --border-color: var(--jz-color-base);
   }
   &:active {
-    --border-width: 2px;
+    --border-width: 1px;
     --border-color: var(--jz-color-base);
   }
   &:focus {
@@ -93,9 +133,6 @@ input {
     --background-color: #{$danger};
     opacity: 1;
   }
-  // &:required + .required-tag {
-  //   display: block;
-  // }
 }
 #indicator {
   max-width: 0.625rem;

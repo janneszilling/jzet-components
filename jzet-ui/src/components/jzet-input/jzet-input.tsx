@@ -39,14 +39,25 @@ export class JzetInput {
    */
   @Prop({ reflect: true }) readonly expand?: 'default' | 'block';
 
+  @Prop() indicator = true;
+
   render() {
-    const { appearance, disabled, type, value, placeholder, required, expand } = this;
+    const { appearance, disabled, type, value, placeholder, required, expand, indicator } = this;
     return (
       <Host class={{ [`jz-color-${appearance}`]: true, 'input-disabled': disabled }}>
         <slot name="label"></slot>
         <div class="input-container">
-          <input placeholder={placeholder} type={type} value={value} disabled={disabled} onInput={this.onInputChangeValue.bind(this)} required={required} {...expand} />
-          <div id="indicator"></div>
+          <input
+            placeholder={placeholder}
+            type={type}
+            value={value}
+            disabled={disabled}
+            onInput={this.onInputChangeValue.bind(this)}
+            required={required}
+            {...expand}
+            indicator={indicator}
+          />
+          {indicator ? <div id="indicator"></div> : ''}
         </div>
         {required ? <label class="required-tag">* Required</label> : ''}
       </Host>

@@ -66,3 +66,11 @@
 :host(.button-minimal:hover) {
   --color: var(--jz-color-shade);
 }
+
+:host([block]) {
+  width: 100%;
+}
+
+:host([block]) .button {
+  width: 100%;
+}
