@@ -116,6 +116,12 @@ export namespace Components {
          */
         "disabled": boolean;
     }
+    interface JzetPopover {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -180,6 +186,12 @@ declare global {
         prototype: HTMLJzetItemElement;
         new (): HTMLJzetItemElement;
     };
+    interface HTMLJzetPopoverElement extends Components.JzetPopover, HTMLStencilElement {
+    }
+    var HTMLJzetPopoverElement: {
+        prototype: HTMLJzetPopoverElement;
+        new (): HTMLJzetPopoverElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -195,6 +207,7 @@ declare global {
         "jzet-filepicker": HTMLJzetFilepickerElement;
         "jzet-input": HTMLJzetInputElement;
         "jzet-item": HTMLJzetItemElement;
+        "jzet-popover": HTMLJzetPopoverElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -309,6 +322,12 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
     }
+    interface JzetPopover {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -332,6 +351,7 @@ declare namespace LocalJSX {
         "jzet-filepicker": JzetFilepicker;
         "jzet-input": JzetInput;
         "jzet-item": JzetItem;
+        "jzet-popover": JzetPopover;
         "my-component": MyComponent;
     }
 }
@@ -347,6 +367,7 @@ declare module "@stencil/core" {
             "jzet-filepicker": LocalJSX.JzetFilepicker & JSXBase.HTMLAttributes<HTMLJzetFilepickerElement>;
             "jzet-input": LocalJSX.JzetInput & JSXBase.HTMLAttributes<HTMLJzetInputElement>;
             "jzet-item": LocalJSX.JzetItem & JSXBase.HTMLAttributes<HTMLJzetItemElement>;
+            "jzet-popover": LocalJSX.JzetPopover & JSXBase.HTMLAttributes<HTMLJzetPopoverElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
