@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+
+:host(.dark-mode) {
+  --background-color: #{$dark};
+  --color: #{$on-dark};
+}
+
+:host(.light-mode) {
+  --background-color: #{$light};
+  --color: #{$on-light};
+}
+
+::slotted([slot='content']) {
+  background-color: var(--background-color);
+  color: var(--color);
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  padding: calc(0.625rem - var(--border-width, 0rem)) calc(0.625rem - var(--border-width, 0rem));
+  border-color: var(--border-color);
+}
+
+#trigger {
+  background: transparent;
+  outline: none;
+  border: none;
+}

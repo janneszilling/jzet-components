@@ -5,7 +5,7 @@
 :host(.dark-mode) {
   --border-color: #{get-color-rgba($light, 0.1)};
   --background-color: #{$dark};
-  --color: #{$light};
+  --color: #{$on-dark};
 
   ::placeholder {
     color: get-color-rgba($light, 0.5);
@@ -30,7 +30,7 @@
 :host(.light-mode) {
   --border-color: #{get-color-rgba($dark, 0.1)};
   --background-color: #{$light};
-  --color: #{$dark};
+  --color: #{$on-light};
 
   ::placeholder {
     color: get-color-rgba($dark, 0.4);
