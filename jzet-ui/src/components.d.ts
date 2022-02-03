@@ -122,6 +122,12 @@ export namespace Components {
          */
         "appearance"?: Color;
     }
+    interface JzetTooltip {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -192,6 +198,12 @@ declare global {
         prototype: HTMLJzetPopoverElement;
         new (): HTMLJzetPopoverElement;
     };
+    interface HTMLJzetTooltipElement extends Components.JzetTooltip, HTMLStencilElement {
+    }
+    var HTMLJzetTooltipElement: {
+        prototype: HTMLJzetTooltipElement;
+        new (): HTMLJzetTooltipElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -208,6 +220,7 @@ declare global {
         "jzet-input": HTMLJzetInputElement;
         "jzet-item": HTMLJzetItemElement;
         "jzet-popover": HTMLJzetPopoverElement;
+        "jzet-tooltip": HTMLJzetTooltipElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -328,6 +341,12 @@ declare namespace LocalJSX {
          */
         "appearance"?: Color;
     }
+    interface JzetTooltip {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -352,6 +371,7 @@ declare namespace LocalJSX {
         "jzet-input": JzetInput;
         "jzet-item": JzetItem;
         "jzet-popover": JzetPopover;
+        "jzet-tooltip": JzetTooltip;
         "my-component": MyComponent;
     }
 }
@@ -368,6 +388,7 @@ declare module "@stencil/core" {
             "jzet-input": LocalJSX.JzetInput & JSXBase.HTMLAttributes<HTMLJzetInputElement>;
             "jzet-item": LocalJSX.JzetItem & JSXBase.HTMLAttributes<HTMLJzetItemElement>;
             "jzet-popover": LocalJSX.JzetPopover & JSXBase.HTMLAttributes<HTMLJzetPopoverElement>;
+            "jzet-tooltip": LocalJSX.JzetTooltip & JSXBase.HTMLAttributes<HTMLJzetTooltipElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
