@@ -23,6 +23,7 @@
   padding: calc(0.625rem - var(--border-width, 0rem)) calc(0.625rem - var(--border-width, 0rem));
   border-color: var(--border-color);
   position: absolute;
+  display: none;
 }
 
 #trigger {
@@ -30,4 +31,8 @@
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+#trigger:hover + ::slotted([slot='content']) {
+  display: block;
 }
