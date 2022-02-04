@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 import { Color } from '../../interface';
 
 @Component({
@@ -22,7 +22,7 @@ export class JzetCheckbox {
   /**
    * If `true`, the checkbox is selected.
    */
-  @Prop({ mutable: true }) checked = false;
+  @Prop({ reflect: true, mutable: true }) checked = false;
 
   /**
    * If `true`, the user cannot interact with the checkbox.
@@ -38,27 +38,29 @@ export class JzetCheckbox {
    */
   @Prop() value = 'on';
 
-  private onClick = (event: any) => {
-    event.preventDefault();
-    if (this.disabled) {
-      this.checked = this.checked;
-    } else {
-      this.checked = !this.checked;
+  @Event() valueChanged: EventEmitter<MouseEvent>;
+
+  private handleChange(e) {
+    if (!this.disabled) {
+      this.checked = e.target.checked;
+      this.valueChanged.emit(e.target.checked);
     }
-  };
+  }
 
   render() {
     const { appearance, inputId, checked, disabled } = this;
     return (
-      <Host onClick={this.onClick} aria-checked={`${checked}`} aria-hidden={disabled ? 'true' : ''} class={{ [`jz-color-${appearance}`]: true, 'checkbox-disabled': disabled }}>
-        <label htmlFor={inputId}>
-          <slot />
-        </label>
-        <div class="checkbox bounce">
-          <input type="checkbox" id={inputId} aria-checked={`${checked}`} checked={checked} disabled={disabled} />
-          <svg viewBox="0 0 22 22">
-            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-          </svg>
+      <Host class={{ [`jz-color-${appearance}`]: true, 'checkbox-disabled': disabled }}>
+        <div class="checkbox-wrapper">
+          <label class="checkbox-label" htmlFor={inputId}>
+            <slot />
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id={inputId} checked={checked} disabled={disabled} onChange={event => this.handleChange(event)} />
+            <span class="checkmark">
+              <span class="check"></span>
+            </span>
+          </label>
         </div>
       </Host>
     );

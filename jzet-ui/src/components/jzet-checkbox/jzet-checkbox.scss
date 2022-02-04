@@ -1,114 +1,87 @@
 :host {
-  width: fit-content;
-  display: flex;
-  vertical-align: middle;
+  display: block;
+}
+
+* {
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
+}
+
+:host(.dark-mode) {
+  --border-color: #{get-color-rgba($light, 0.1)};
+  --color: #{$on-dark};
+}
+
+:host(.light-mode) {
+  --border-color: #{get-color-rgba($dark, 0.1)};
+  --color: #{$on-light};
 }
 
 :host(.checkbox-disabled) .checkbox {
-  --background: transparent;
-  --border: #{$light-disabled};
-  --border-hover: #{$light-disabled};
-  --border-active: #{$light-disabled};
-  --tick: #{$on-light-disabled};
-
-  input {
-    box-shadow: inset 0 0 0 1px var(--b, var(--border));
-    cursor: default;
-  }
+  cursor: default;
+  --border-color: #{$light-disabled};
 }
 
-:host(.checkbox-disabled) .checkbox:checked {
+:host(.checkbox-disabled) .checkbox input:checked + .checkmark {
   --background: #{$light-disabled};
-  --border: #{$light-disabled};
-  --border-hover: #{$light-disabled};
-  --border-active: #{$light-disabled};
-  --tick: #{$on-light-disabled};
-
-  input {
-    box-shadow: inset 0 0 0 1px var(--b, var(--border));
-    cursor: default;
-  }
+  --border-color: #{$light-disabled};
 }
 
-:host(.checkbox-disabled) label {
+:host(.checkbox-disabled) .checkbox-label {
   cursor: default;
   pointer-events: none;
-  color: #{$on-light-disabled};
+  --color: #{$on-light-disabled};
+}
+
+.checkbox-wrapper {
+  display: flex;
 }
 
 .checkbox {
-  --background: transparent;
-  --border: #{$light};
-  --border-hover: #{get-color-shade($light)};
-  --border-active: var(--jz-color-base);
-  --tick: var(--jz-color-contrast);
-  position: relative;
-  input,
-  svg {
-    width: 1.375rem;
-    height: 1.375rem;
-    display: block;
-  }
-  input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    position: relative;
-    outline: none;
-    background: var(--background);
-    border: none;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: box-shadow 0.3s;
-    box-shadow: inset 0 0 0 var(--s, 1px) var(--b, var(--border));
-    &:hover {
-      --s: 2px;
-      --b: var(--border-hover);
-    }
-    &:checked {
-      --b: var(--border-active);
-    }
-  }
-  svg {
-    pointer-events: none;
-    fill: none;
-    stroke-width: 2px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: var(--stroke, var(--border-active));
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1.375rem;
-    height: 1.375rem;
-    transform: scale(var(--scale, 1)) translateZ(0);
-  }
-  &.bounce {
-    --stroke: var(--tick);
-    input {
-      &:checked {
-        --s: 0.688rem;
-        & + svg {
-          animation: bounce 0.2s linear forwards;
-        }
-      }
-    }
-    svg {
-      --scale: 0;
-    }
-  }
+  cursor: pointer;
 }
 
-@keyframes bounce {
-  100% {
-    transform: scale(1);
-  }
+.checkbox .checkmark {
+  --background: tansparent;
+  width: 1.375rem;
+  height: 1.375rem;
+  border: solid;
+  border-width: 1px;
+  border-color: var(--border-color);
+  border-radius: 4px;
+  display: inline-block;
+  background: var(--background);
+  transition: all 0.3s ease;
 }
 
-label {
+.checkbox input:checked + .checkmark {
+  --background: var(--jz-color-base);
+  --border-color: var(--jz-color-base);
+}
+
+.checkbox input {
+  display: none;
+}
+
+.check {
+  --border-width: 2px;
+  --height: 12px;
+  --width: 6px;
+  width: var(--width);
+  height: var(--height);
+  border-bottom: var(--border-width) solid var(--jz-color-contrast);
+  border-right: var(--border-width) solid var(--jz-color-contrast);
+  display: inline-block;
+  transform: rotate(45deg);
+  margin: -1px 7px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.checkbox input:checked + .checkmark .check {
+  opacity: 1;
+}
+
+.checkbox-label {
   padding: 0 1rem 0 0;
   display: inline-block;
   font-family: 'Inter', sans-serif;
@@ -117,4 +90,5 @@ label {
   width: 100%;
   user-select: none;
   cursor: pointer;
+  color: var(--color);
 }
