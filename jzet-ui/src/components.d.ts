@@ -122,6 +122,43 @@ export namespace Components {
          */
         "appearance"?: Color;
     }
+    interface JzetRadio {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the radio is selected.
+         */
+        "checked": boolean;
+        /**
+          * If `true`, the user cannot interact with the radio.
+         */
+        "disabled": boolean;
+        /**
+          * Determines, whether the control is disabled from the parent group
+         */
+        "groupDisabled": boolean;
+        /**
+          * The name of the radio button. All radio buttons with the same name belong to one group.
+         */
+        "name": string;
+        /**
+          * The value of the radio.
+         */
+        "value": string;
+    }
+    interface JzetRadioGroup {
+        "disabled": boolean;
+        /**
+          * Name for the radio buttons within this group
+         */
+        "name": string;
+        /**
+          * The value of the selected radio button.
+         */
+        "value": string;
+    }
     interface JzetTooltip {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -198,6 +235,18 @@ declare global {
         prototype: HTMLJzetPopoverElement;
         new (): HTMLJzetPopoverElement;
     };
+    interface HTMLJzetRadioElement extends Components.JzetRadio, HTMLStencilElement {
+    }
+    var HTMLJzetRadioElement: {
+        prototype: HTMLJzetRadioElement;
+        new (): HTMLJzetRadioElement;
+    };
+    interface HTMLJzetRadioGroupElement extends Components.JzetRadioGroup, HTMLStencilElement {
+    }
+    var HTMLJzetRadioGroupElement: {
+        prototype: HTMLJzetRadioGroupElement;
+        new (): HTMLJzetRadioGroupElement;
+    };
     interface HTMLJzetTooltipElement extends Components.JzetTooltip, HTMLStencilElement {
     }
     var HTMLJzetTooltipElement: {
@@ -220,6 +269,8 @@ declare global {
         "jzet-input": HTMLJzetInputElement;
         "jzet-item": HTMLJzetItemElement;
         "jzet-popover": HTMLJzetPopoverElement;
+        "jzet-radio": HTMLJzetRadioElement;
+        "jzet-radio-group": HTMLJzetRadioGroupElement;
         "jzet-tooltip": HTMLJzetTooltipElement;
         "my-component": HTMLMyComponentElement;
     }
@@ -341,6 +392,45 @@ declare namespace LocalJSX {
          */
         "appearance"?: Color;
     }
+    interface JzetRadio {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the radio is selected.
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the user cannot interact with the radio.
+         */
+        "disabled"?: boolean;
+        /**
+          * Determines, whether the control is disabled from the parent group
+         */
+        "groupDisabled"?: boolean;
+        /**
+          * The name of the radio button. All radio buttons with the same name belong to one group.
+         */
+        "name"?: string;
+        "onValueChanged"?: (event: CustomEvent<MouseEvent>) => void;
+        /**
+          * The value of the radio.
+         */
+        "value"?: string;
+    }
+    interface JzetRadioGroup {
+        "disabled"?: boolean;
+        /**
+          * Name for the radio buttons within this group
+         */
+        "name"?: string;
+        "onValueChanged"?: (event: CustomEvent<string>) => void;
+        /**
+          * The value of the selected radio button.
+         */
+        "value"?: string;
+    }
     interface JzetTooltip {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -371,6 +461,8 @@ declare namespace LocalJSX {
         "jzet-input": JzetInput;
         "jzet-item": JzetItem;
         "jzet-popover": JzetPopover;
+        "jzet-radio": JzetRadio;
+        "jzet-radio-group": JzetRadioGroup;
         "jzet-tooltip": JzetTooltip;
         "my-component": MyComponent;
     }
@@ -388,6 +480,8 @@ declare module "@stencil/core" {
             "jzet-input": LocalJSX.JzetInput & JSXBase.HTMLAttributes<HTMLJzetInputElement>;
             "jzet-item": LocalJSX.JzetItem & JSXBase.HTMLAttributes<HTMLJzetItemElement>;
             "jzet-popover": LocalJSX.JzetPopover & JSXBase.HTMLAttributes<HTMLJzetPopoverElement>;
+            "jzet-radio": LocalJSX.JzetRadio & JSXBase.HTMLAttributes<HTMLJzetRadioElement>;
+            "jzet-radio-group": LocalJSX.JzetRadioGroup & JSXBase.HTMLAttributes<HTMLJzetRadioGroupElement>;
             "jzet-tooltip": LocalJSX.JzetTooltip & JSXBase.HTMLAttributes<HTMLJzetTooltipElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
