@@ -1,0 +1,87 @@
+:host {
+  display: inline-block;
+}
+
+:host(.dark-mode) {
+  --border-color: #{get-color-rgba($light, 0.1)};
+  --color: #{$on-dark};
+}
+
+:host(.light-mode) {
+  --border-color: #{get-color-rgba($dark, 0.1)};
+  --color: #{$on-light};
+}
+
+:host(.radio-disabled) .radio-button {
+  --background: transparent;
+  --border-color: #{$light-disabled};
+  --border-active: #{$light-disabled};
+}
+
+:host(.radio-disabled) .checkmark {
+  --background: #{$on-light-disabled};
+}
+
+:host(.radio-disabled) .radio-label {
+  cursor: default;
+  pointer-events: none;
+  color: #{$on-light-disabled};
+}
+
+.radio-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio-button {
+  --background: var(--jz-color-base);
+  --border-active: var(--jz-color-base);
+  width: 1.375rem;
+  height: 1.375rem;
+  border: solid;
+  border-width: 1px;
+  border-color: var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .checkmark {
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    border-radius: 50%;
+    background: var(--background);
+    display: inline-block;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  input {
+    display: none;
+  }
+
+  input:checked + .checkmark {
+    opacity: 1;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-color: var(--border-active);
+  }
+}
+
+.radio-button-active {
+  border-color: var(--border-active);
+}
+
+.radio-label {
+  padding: 0 1rem 0 1rem;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  color: var(--color);
+  font-size: 1rem;
+  font-weight: 500;
+  user-select: none;
+}
