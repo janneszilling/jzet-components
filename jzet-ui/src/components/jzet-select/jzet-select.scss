@@ -52,7 +52,7 @@
   color: #{$on-light};
 }
 
-:host(.input-disabled) {
+:host(.select-disabled) {
   --background-color: #{$light-disabled};
   --border-color: #{$light-disabled};
   --color: #{$on-light-disabled};
@@ -73,20 +73,24 @@
       --color: #{$on-light-disabled};
     }
   }
-}
-
-.input-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .icon {
+    cursor: default;
+  }
 }
 
 :host([block]) input,
-.input-container {
+.select-container {
   width: 100%;
 }
 
-input {
+.select-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  outline: none;
+}
+
+.select {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 1rem;
@@ -99,6 +103,7 @@ input {
   padding: calc(0.625rem - var(--border-width, 0rem)) calc(0.625rem - var(--border-width, 0rem));
   border-color: var(--border-color);
   color: var(--color);
+  cursor: pointer;
   transition: all 0.3s;
 
   &:hover {
@@ -112,52 +117,33 @@ input {
   &:focus {
     --border-width: 1px;
     --border-color: var(--jz-color-base);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
-  &:focus:not(:placeholder-shown):valid ~ #indicator {
-    --border-color: #{$on-success};
-    --background-color: #{$success};
-    opacity: 1;
-  }
-  &:not(:focus):not(:placeholder-shown):valid ~ #indicator {
-    --border-color: #{$on-success};
-    --background-color: #{$success};
-    opacity: 1;
-  }
-  &:focus:not(:placeholder-shown):invalid ~ #indicator {
-    --border-color: #{$on-danger};
-    --background-color: #{$danger};
-    opacity: 1;
-  }
-  &:not(:focus):not(:placeholder-shown):invalid ~ #indicator {
-    --border-color: #{$on-danger};
-    --background-color: #{$danger};
-    opacity: 1;
-  }
-}
-#indicator {
-  max-width: 0.625rem;
-  min-width: 0.625rem;
-  height: 0.625rem;
-  margin-left: 0.5rem;
-  border: solid;
-  border-width: 1px;
-  border-radius: 50%;
-  border-color: var(--border-color);
-  background-color: var(--background-color);
-  opacity: 0;
 }
 
-::slotted(*) {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 0.8rem;
-  margin: 0 0 0.5rem 0;
+.icon-button {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0.5rem;
 }
 
-.required-tag {
-  display: block;
+.icon {
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 0.6rem;
-  margin: 0.25rem 0 0 0;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.icon-arrow--expanded {
+  transform: rotate(90deg);
+}
+
+.icon-arrow--collapsed {
+  transform: rotate(-90deg);
 }
