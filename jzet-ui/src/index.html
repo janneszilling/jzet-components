@@ -208,6 +208,17 @@
       </jzet-radio-group>
     </div>
     <h1>Select</h1>
+    <div class="container">
+      <jzet-select class="light-mode" placeholder="Please choose"></jzet-select>
+      <script>
+        let select = document.querySelector('jzet-select');
+        select.items = [
+          { label: 'Value 1', value: 1 },
+          { label: 'Value 2', value: 2 },
+          { label: 'Value 3', value: 3 },
+        ];
+      </script>
+    </div>
     <h1>Switch</h1>
     <h1>Tags</h1>
   </body>

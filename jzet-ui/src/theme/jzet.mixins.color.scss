@@ -7,14 +7,20 @@
   $contrast: map-get($value, contrast);
   $shade: map-get($value, shade);
   $tint: map-get($value, tint);
+  $darken: map-get($value, darken);
+  $lighten: map-get($value, lighten);
 
   --jz-color-#{$color-name}: #{$base};
   --jz-color-#{$color-name}-contrast: #{$contrast};
   --jz-color-#{$color-name}-shade: #{$shade};
   --jz-color-#{$color-name}-tint: #{$tint};
+  --jz-color-#{$color-name}-darken: #{$darken};
+  --jz-color-#{$color-name}-lighten: #{$lighten};
 
   --jz-color-base: var(--jz-color-#{$color-name}, #{$base});
   --jz-color-contrast: var(--jz-color-#{$color-name}-contrast, #{$contrast});
   --jz-color-shade: var(--jz-color-#{$color-name}-shade, #{$shade});
   --jz-color-tint: var(--jz-color-#{$color-name}-tint, #{$tint});
+  --jz-color-darken: var(--jz-color-#{$color-name}-darken, #{$darken});
+  --jz-color-lighten: var(--jz-color-#{$color-name}-lighten, #{$lighten});
 }

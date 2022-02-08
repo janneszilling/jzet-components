@@ -30,6 +30,8 @@ $palette: (
     contrast: $on-primary,
     shade: get-color-shade($primary),
     tint: get-color-tint($primary),
+    darken: get-color-shade($primary, 80%),
+    lighten: get-color-tint($primary, 90%),
   ),
   secondary: (
     base: $secondary,

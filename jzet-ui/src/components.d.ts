@@ -159,6 +159,74 @@ export namespace Components {
          */
         "value": string;
     }
+    interface JzetSelect {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the select.
+         */
+        "disabled": boolean;
+        /**
+          * Set to `"block"` for a full-width button.
+         */
+        "expand"?: 'default' | 'block';
+        /**
+          * Set the property for the items to define as label. Default: "label"
+         */
+        "itemLabelProperty": string;
+        /**
+          * Set thte property for the itmes to define as value. Default: "value"
+         */
+        "itemValueProperty": string;
+        /**
+          * An array of items to choose from.
+         */
+        "items": any[];
+        /**
+          * Optional placeholder if no value is selected.
+         */
+        "placeholder"?: string;
+        /**
+          * The selected value of the combobox
+         */
+        "value": string;
+    }
+    interface JzetSelectOptions {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the select.
+         */
+        "disabled": boolean;
+        /**
+          * Set the property for the items to define as label. Default: "label"
+         */
+        "itemLabelProperty": string;
+        /**
+          * Set the property for the items to define as value. Default: "value"
+         */
+        "itemValueProperty": string;
+        /**
+          * An array of items to choose from
+         */
+        "items": any[];
+        /**
+          * Set the light or dark mode.
+         */
+        "mode": string;
+        /**
+          * The selected value
+         */
+        "value": string;
+        /**
+          * Determines, whether the options are visible or not
+         */
+        "visible": boolean;
+    }
     interface JzetTooltip {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -247,6 +315,18 @@ declare global {
         prototype: HTMLJzetRadioGroupElement;
         new (): HTMLJzetRadioGroupElement;
     };
+    interface HTMLJzetSelectElement extends Components.JzetSelect, HTMLStencilElement {
+    }
+    var HTMLJzetSelectElement: {
+        prototype: HTMLJzetSelectElement;
+        new (): HTMLJzetSelectElement;
+    };
+    interface HTMLJzetSelectOptionsElement extends Components.JzetSelectOptions, HTMLStencilElement {
+    }
+    var HTMLJzetSelectOptionsElement: {
+        prototype: HTMLJzetSelectOptionsElement;
+        new (): HTMLJzetSelectOptionsElement;
+    };
     interface HTMLJzetTooltipElement extends Components.JzetTooltip, HTMLStencilElement {
     }
     var HTMLJzetTooltipElement: {
@@ -271,6 +351,8 @@ declare global {
         "jzet-popover": HTMLJzetPopoverElement;
         "jzet-radio": HTMLJzetRadioElement;
         "jzet-radio-group": HTMLJzetRadioGroupElement;
+        "jzet-select": HTMLJzetSelectElement;
+        "jzet-select-options": HTMLJzetSelectOptionsElement;
         "jzet-tooltip": HTMLJzetTooltipElement;
         "my-component": HTMLMyComponentElement;
     }
@@ -432,6 +514,90 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface JzetSelect {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the select.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set to `"block"` for a full-width button.
+         */
+        "expand"?: 'default' | 'block';
+        /**
+          * Set the property for the items to define as label. Default: "label"
+         */
+        "itemLabelProperty"?: string;
+        /**
+          * Set thte property for the itmes to define as value. Default: "value"
+         */
+        "itemValueProperty"?: string;
+        /**
+          * An array of items to choose from.
+         */
+        "items"?: any[];
+        /**
+          * Event is being emitted when input gets focus..
+         */
+        "onFocusGained"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Event is being emitted when focus gets lost.
+         */
+        "onFocusLost"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Event is being emitted when value changes
+         */
+        "onItemSelected"?: (event: CustomEvent<any>) => void;
+        /**
+          * Optional placeholder if no value is selected.
+         */
+        "placeholder"?: string;
+        /**
+          * The selected value of the combobox
+         */
+        "value"?: string;
+    }
+    interface JzetSelectOptions {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the select.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set the property for the items to define as label. Default: "label"
+         */
+        "itemLabelProperty"?: string;
+        /**
+          * Set the property for the items to define as value. Default: "value"
+         */
+        "itemValueProperty"?: string;
+        /**
+          * An array of items to choose from
+         */
+        "items"?: any[];
+        /**
+          * Set the light or dark mode.
+         */
+        "mode"?: string;
+        /**
+          * Event is being emitted when value changes.
+         */
+        "onItemSelected"?: (event: CustomEvent<any>) => void;
+        /**
+          * The selected value
+         */
+        "value"?: string;
+        /**
+          * Determines, whether the options are visible or not
+         */
+        "visible"?: boolean;
+    }
     interface JzetTooltip {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -464,6 +630,8 @@ declare namespace LocalJSX {
         "jzet-popover": JzetPopover;
         "jzet-radio": JzetRadio;
         "jzet-radio-group": JzetRadioGroup;
+        "jzet-select": JzetSelect;
+        "jzet-select-options": JzetSelectOptions;
         "jzet-tooltip": JzetTooltip;
         "my-component": MyComponent;
     }
@@ -483,6 +651,8 @@ declare module "@stencil/core" {
             "jzet-popover": LocalJSX.JzetPopover & JSXBase.HTMLAttributes<HTMLJzetPopoverElement>;
             "jzet-radio": LocalJSX.JzetRadio & JSXBase.HTMLAttributes<HTMLJzetRadioElement>;
             "jzet-radio-group": LocalJSX.JzetRadioGroup & JSXBase.HTMLAttributes<HTMLJzetRadioGroupElement>;
+            "jzet-select": LocalJSX.JzetSelect & JSXBase.HTMLAttributes<HTMLJzetSelectElement>;
+            "jzet-select-options": LocalJSX.JzetSelectOptions & JSXBase.HTMLAttributes<HTMLJzetSelectOptionsElement>;
             "jzet-tooltip": LocalJSX.JzetTooltip & JSXBase.HTMLAttributes<HTMLJzetTooltipElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
