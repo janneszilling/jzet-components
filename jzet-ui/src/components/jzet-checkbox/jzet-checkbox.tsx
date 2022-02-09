@@ -15,11 +15,6 @@ export class JzetCheckbox {
   @Prop({ reflect: true }) readonly appearance?: Color = 'secondary';
 
   /**
-   * The name of the control, which is submitted with the form data.
-   */
-  @Prop() name: string = this.inputId;
-
-  /**
    * If `true`, the checkbox is selected.
    */
   @Prop({ reflect: true, mutable: true }) checked = false;
