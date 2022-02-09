@@ -55,10 +55,6 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * The name of the control, which is submitted with the form data.
-         */
-        "name": string;
-        /**
           * The value of the checkbox does not mean if it's checked or not, use the `checked` property for that.  The value of a checkbox is analogous to the value of an `<input type="checkbox">`, it's only used when the checkbox participates in a native `<form>`.
          */
         "value": string;
@@ -227,6 +223,21 @@ export namespace Components {
          */
         "visible": boolean;
     }
+    interface JzetSwitch {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the switch.
+         */
+        "disabled": boolean;
+        "label": string;
+        /**
+          * The value of the switch
+         */
+        "value": boolean;
+    }
     interface JzetTooltip {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -327,6 +338,12 @@ declare global {
         prototype: HTMLJzetSelectOptionsElement;
         new (): HTMLJzetSelectOptionsElement;
     };
+    interface HTMLJzetSwitchElement extends Components.JzetSwitch, HTMLStencilElement {
+    }
+    var HTMLJzetSwitchElement: {
+        prototype: HTMLJzetSwitchElement;
+        new (): HTMLJzetSwitchElement;
+    };
     interface HTMLJzetTooltipElement extends Components.JzetTooltip, HTMLStencilElement {
     }
     var HTMLJzetTooltipElement: {
@@ -353,6 +370,7 @@ declare global {
         "jzet-radio-group": HTMLJzetRadioGroupElement;
         "jzet-select": HTMLJzetSelectElement;
         "jzet-select-options": HTMLJzetSelectOptionsElement;
+        "jzet-switch": HTMLJzetSwitchElement;
         "jzet-tooltip": HTMLJzetTooltipElement;
         "my-component": HTMLMyComponentElement;
     }
@@ -405,10 +423,6 @@ declare namespace LocalJSX {
           * If `true`, the user cannot interact with the checkbox.
          */
         "disabled"?: boolean;
-        /**
-          * The name of the control, which is submitted with the form data.
-         */
-        "name"?: string;
         "onValueChanged"?: (event: CustomEvent<MouseEvent>) => void;
         /**
           * The value of the checkbox does not mean if it's checked or not, use the `checked` property for that.  The value of a checkbox is analogous to the value of an `<input type="checkbox">`, it's only used when the checkbox participates in a native `<form>`.
@@ -598,6 +612,25 @@ declare namespace LocalJSX {
          */
         "visible"?: boolean;
     }
+    interface JzetSwitch {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the switch.
+         */
+        "disabled"?: boolean;
+        "label"?: string;
+        /**
+          * Event is being emitted when value changes.
+         */
+        "onValueChanged"?: (event: CustomEvent<MouseEvent>) => void;
+        /**
+          * The value of the switch
+         */
+        "value"?: boolean;
+    }
     interface JzetTooltip {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -632,6 +665,7 @@ declare namespace LocalJSX {
         "jzet-radio-group": JzetRadioGroup;
         "jzet-select": JzetSelect;
         "jzet-select-options": JzetSelectOptions;
+        "jzet-switch": JzetSwitch;
         "jzet-tooltip": JzetTooltip;
         "my-component": MyComponent;
     }
@@ -653,6 +687,7 @@ declare module "@stencil/core" {
             "jzet-radio-group": LocalJSX.JzetRadioGroup & JSXBase.HTMLAttributes<HTMLJzetRadioGroupElement>;
             "jzet-select": LocalJSX.JzetSelect & JSXBase.HTMLAttributes<HTMLJzetSelectElement>;
             "jzet-select-options": LocalJSX.JzetSelectOptions & JSXBase.HTMLAttributes<HTMLJzetSelectOptionsElement>;
+            "jzet-switch": LocalJSX.JzetSwitch & JSXBase.HTMLAttributes<HTMLJzetSwitchElement>;
             "jzet-tooltip": LocalJSX.JzetTooltip & JSXBase.HTMLAttributes<HTMLJzetTooltipElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }

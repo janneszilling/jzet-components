@@ -1,0 +1,119 @@
+:host {
+  --switch__toggle-width: calc(1.375rem * 1.7);
+  --switch__toggle-height: calc(1.375rem + var(--switch__indicator-border-width) + var(--switch__indicator-border-width));
+  --switch__toggle-border-width: 1px;
+
+  --switch__toggle-background: #{$light};
+
+  --switch__indicator-background: #fff;
+  --switch__indicator-background--active: var(--jz-color-base);
+  --switch__indicator-background-hover: var(--jz-color-shade);
+
+  --switch__indicator-border-width: 2px;
+  --switch__indicator-width: calc(1.375rem + var(--switch__indicator-border-width));
+  --switch__indicator-height: calc(1.375rem + var(--switch__indicator-border-width));
+
+  display: inline-block;
+  box-sizing: border-box;
+  user-select: none;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+:host(.dark-mode) {
+  --border-color: #{get-color-rgba($light, 0.1)};
+  --background-color: #{$dark};
+  --color: #{$on-dark};
+}
+
+:host(.dark-mode) ::slotted(*) {
+  color: #{$on-dark};
+}
+
+:host(.light-mode) {
+  --border-color: #{get-color-rgba($dark, 0.1)};
+  --background-color: #{$light};
+  --color: #{$on-light};
+}
+
+:host(.light-mode) ::slotted(*) {
+  color: #{$on-light};
+}
+
+input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  outline: none;
+
+  &:checked + .switch__toggle.active::before {
+    left: 11.5px;
+    border-color: var(--switch__indicator-background--active);
+  }
+
+  &:checked + .switch__toggle {
+    background: var(--switch__indicator-background--active);
+  }
+}
+
+:host(.switch-disabled) {
+  --background-color: #{$light-disabled};
+  --border-color: #{$light-disabled};
+  --color: #{$on-light-disabled};
+}
+
+.switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.switch__toggle {
+  outline: none;
+  display: inline-block;
+  width: var(--switch__toggle-width);
+  height: var(--switch__toggle-height);
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    width: var(--switch__indicator-width);
+    height: var(--switch__indicator-height);
+    left: 0px;
+    border-radius: 50%;
+    border: var(--switch__indicator-border-width) solid var(--background-color);
+
+    background: var(--switch__indicator-background);
+    transition: left 0.3s ease, border-color 0.3s ease;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+.switch-label {
+  padding: 0 1rem 0 0;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  user-select: none;
+  cursor: default;
+  color: var(--color);
+}
