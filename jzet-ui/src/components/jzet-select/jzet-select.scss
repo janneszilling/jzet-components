@@ -57,6 +57,7 @@
   --border-color: #{$light-disabled};
   --color: #{$on-light-disabled};
   input {
+    cursor: default;
     &:hover {
       --border-width: 1px;
       --border-color: #{$light-disabled};
