@@ -20,7 +20,15 @@ export class JzetRadioGroup {
    */
   @Prop({ reflect: true, mutable: true }) value: string;
 
+  /**
+   * If `true`, the user cannot interact with the radio-group.
+   */
   @Prop() disabled: boolean;
+
+  /**
+   * Sets the flex direction for the radio buttons.
+   */
+  @Prop() readonly flexDirection?: 'row' | 'column';
 
   @Event() valueChanged: EventEmitter<string>;
 
@@ -65,6 +73,10 @@ export class JzetRadioGroup {
   }
 
   render(): HTMLElement {
-    return <slot></slot>;
+    return (
+      <div class="radio-group-wrapper" style={{ ['flex-direction']: `${this.flexDirection}` }}>
+        <slot></slot>
+      </div>
+    );
   }
 }
