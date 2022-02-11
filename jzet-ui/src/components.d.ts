@@ -145,7 +145,14 @@ export namespace Components {
         "value": string;
     }
     interface JzetRadioGroup {
+        /**
+          * If `true`, the user cannot interact with the radio-group.
+         */
         "disabled": boolean;
+        /**
+          * Sets the flex direction for the radio buttons.
+         */
+        "flexDirection"?: 'row' | 'column';
         /**
           * Name for the radio buttons within this group
          */
@@ -237,6 +244,29 @@ export namespace Components {
           * The value of the switch
          */
         "value": boolean;
+    }
+    interface JzetTextarea {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the textarea.
+         */
+        "disabled": boolean;
+        /**
+          * Set to `"block"` for a full-width button.
+         */
+        "expand"?: 'default' | 'block';
+        /**
+          * The placeholder for the textarea.
+         */
+        "placeholder": string;
+        "rows"?: number;
+        /**
+          * The initial value. Can be updated at runtime.
+         */
+        "value": string;
     }
     interface JzetTooltip {
         /**
@@ -344,6 +374,12 @@ declare global {
         prototype: HTMLJzetSwitchElement;
         new (): HTMLJzetSwitchElement;
     };
+    interface HTMLJzetTextareaElement extends Components.JzetTextarea, HTMLStencilElement {
+    }
+    var HTMLJzetTextareaElement: {
+        prototype: HTMLJzetTextareaElement;
+        new (): HTMLJzetTextareaElement;
+    };
     interface HTMLJzetTooltipElement extends Components.JzetTooltip, HTMLStencilElement {
     }
     var HTMLJzetTooltipElement: {
@@ -371,6 +407,7 @@ declare global {
         "jzet-select": HTMLJzetSelectElement;
         "jzet-select-options": HTMLJzetSelectOptionsElement;
         "jzet-switch": HTMLJzetSwitchElement;
+        "jzet-textarea": HTMLJzetTextareaElement;
         "jzet-tooltip": HTMLJzetTooltipElement;
         "my-component": HTMLMyComponentElement;
     }
@@ -517,7 +554,14 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface JzetRadioGroup {
+        /**
+          * If `true`, the user cannot interact with the radio-group.
+         */
         "disabled"?: boolean;
+        /**
+          * Sets the flex direction for the radio buttons.
+         */
+        "flexDirection"?: 'row' | 'column';
         /**
           * Name for the radio buttons within this group
          */
@@ -631,6 +675,41 @@ declare namespace LocalJSX {
          */
         "value"?: boolean;
     }
+    interface JzetTextarea {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If `true`, the user cannot interact with the textarea.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set to `"block"` for a full-width button.
+         */
+        "expand"?: 'default' | 'block';
+        /**
+          * Event is being emitted when input gets focus.
+         */
+        "onFocusGained"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Event is being emitted when focus gets lost.
+         */
+        "onFocusLost"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Event is being emitted when value changes.
+         */
+        "onValueChanged"?: (event: CustomEvent<string>) => void;
+        /**
+          * The placeholder for the textarea.
+         */
+        "placeholder"?: string;
+        "rows"?: number;
+        /**
+          * The initial value. Can be updated at runtime.
+         */
+        "value"?: string;
+    }
     interface JzetTooltip {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -666,6 +745,7 @@ declare namespace LocalJSX {
         "jzet-select": JzetSelect;
         "jzet-select-options": JzetSelectOptions;
         "jzet-switch": JzetSwitch;
+        "jzet-textarea": JzetTextarea;
         "jzet-tooltip": JzetTooltip;
         "my-component": MyComponent;
     }
@@ -688,6 +768,7 @@ declare module "@stencil/core" {
             "jzet-select": LocalJSX.JzetSelect & JSXBase.HTMLAttributes<HTMLJzetSelectElement>;
             "jzet-select-options": LocalJSX.JzetSelectOptions & JSXBase.HTMLAttributes<HTMLJzetSelectOptionsElement>;
             "jzet-switch": LocalJSX.JzetSwitch & JSXBase.HTMLAttributes<HTMLJzetSwitchElement>;
+            "jzet-textarea": LocalJSX.JzetTextarea & JSXBase.HTMLAttributes<HTMLJzetTextareaElement>;
             "jzet-tooltip": LocalJSX.JzetTooltip & JSXBase.HTMLAttributes<HTMLJzetTooltipElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }

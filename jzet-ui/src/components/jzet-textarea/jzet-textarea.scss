@@ -52,12 +52,11 @@
   color: #{$on-light};
 }
 
-:host(.select-disabled) {
+:host(.textarea-disabled) {
   --background-color: #{$light-disabled};
   --border-color: #{$light-disabled};
   --color: #{$on-light-disabled};
   input {
-    cursor: default;
     &:hover {
       --border-width: 1px;
       --border-color: #{$light-disabled};
@@ -74,24 +73,20 @@
       --color: #{$on-light-disabled};
     }
   }
-  .icon {
-    cursor: default;
-  }
 }
 
-:host([block]) input,
-.select-container {
+.textarea-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host([block]) textarea,
+.textarea-container {
   width: 100%;
 }
 
-.select-container {
-  display: flex;
-  align-items: center;
-  position: relative;
-  outline: none;
-}
-
-.select {
+textarea {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 1rem;
@@ -104,7 +99,7 @@
   padding: calc(0.625rem - var(--border-width, 0rem)) calc(0.625rem - var(--border-width, 0rem));
   border-color: var(--border-color);
   color: var(--color);
-  cursor: pointer;
+  resize: none;
   transition: all 0.3s;
 
   &:hover {
@@ -118,33 +113,12 @@
   &:focus {
     --border-width: 1px;
     --border-color: var(--jz-color-base);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
   }
 }
 
-.icon-button {
-  flex: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 0.5rem;
-}
-
-.icon {
+::slotted(*) {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-  color: var(--color);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.icon-arrow--expanded {
-  transform: rotate(90deg);
-}
-
-.icon-arrow--collapsed {
-  transform: rotate(-90deg);
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem 0;
 }
