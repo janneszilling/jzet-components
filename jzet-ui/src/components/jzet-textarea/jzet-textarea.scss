@@ -1,0 +1,124 @@
+:host {
+  display: block;
+}
+
+:host(.dark-mode) {
+  --border-color: #{get-color-rgba($light, 0.1)};
+  --background-color: #{$dark};
+  --color: #{$on-dark};
+
+  ::placeholder {
+    color: get-color-rgba($light, 0.5);
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: get-color-rgba($light, 0.5);
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: redget-color-rgba($light, 0.5);
+  }
+}
+
+:host(.dark-mode) ::slotted(*) {
+  color: #{$on-dark};
+}
+
+:host(.light-mode) {
+  --border-color: #{get-color-rgba($dark, 0.1)};
+  --background-color: #{$light};
+  --color: #{$on-light};
+
+  ::placeholder {
+    color: get-color-rgba($dark, 0.4);
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: get-color-rgba($dark, 0.4);
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: redget-color-rgba($dark, 0.4);
+  }
+}
+
+:host(.light-mode) ::slotted(*) {
+  color: #{$on-light};
+}
+
+:host(.textarea-disabled) {
+  --background-color: #{$light-disabled};
+  --border-color: #{$light-disabled};
+  --color: #{$on-light-disabled};
+  input {
+    &:hover {
+      --border-width: 1px;
+      --border-color: #{$light-disabled};
+      --color: #{$on-light-disabled};
+    }
+    &:active {
+      --border-width: 1px;
+      --border-color: #{$light-disabled};
+      --color: #{$on-light-disabled};
+    }
+    &:focus {
+      --border-width: 1px;
+      --border-color: #{$light-disabled};
+      --color: #{$on-light-disabled};
+    }
+  }
+}
+
+.textarea-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host([block]) textarea,
+.textarea-container {
+  width: 100%;
+}
+
+textarea {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: var(--background-color, transparent);
+  border: solid;
+  border-radius: 0.5rem;
+  --border-width: 1px;
+  border-width: var(--border-width);
+  outline: none;
+  padding: calc(0.625rem - var(--border-width, 0rem)) calc(0.625rem - var(--border-width, 0rem));
+  border-color: var(--border-color);
+  color: var(--color);
+  resize: none;
+  transition: all 0.3s;
+
+  &:hover {
+    --border-width: 1px;
+    --border-color: var(--jz-color-base);
+  }
+  &:active {
+    --border-width: 1px;
+    --border-color: var(--jz-color-base);
+  }
+  &:focus {
+    --border-width: 1px;
+    --border-color: var(--jz-color-base);
+  }
+}
+
+::slotted(*) {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem 0;
+}

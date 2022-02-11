@@ -200,19 +200,47 @@
       ></jzet-tooltip>
     </div>
     <h1>Radio</h1>
-    <div class="continer">
+    <div class="container">
       <jzet-radio-group name="bg1" value="Radio 1">
         <jzet-radio class="light-mode" value="Radio 1">Radio 1</jzet-radio>
         <jzet-radio class="light-mode" value="Radio 2">Radio 2</jzet-radio>
         <jzet-radio class="light-mode" value="Radio 3">Radio 3</jzet-radio>
       </jzet-radio-group>
+
+      <jzet-radio-group name="bg2" value="Radio 2" flex-direction="column">
+        <jzet-radio class="light-mode" appearance="primary" value="Radio 1">Radio 1</jzet-radio>
+        <jzet-radio class="light-mode" appearance="primary" value="Radio 2">Radio 2</jzet-radio>
+        <jzet-radio class="light-mode" appearance="primary" value="Radio 3">Radio 3</jzet-radio>
+      </jzet-radio-group>
+
+      <jzet-radio-group name="bg3" disabled>
+        <jzet-radio class="light-mode" appearance="primary" value="Radio 1">Radio 1</jzet-radio>
+        <jzet-radio class="light-mode" appearance="primary" value="Radio 2">Radio 2</jzet-radio>
+        <jzet-radio class="light-mode" appearance="primary" value="Radio 3">Radio 3</jzet-radio>
+      </jzet-radio-group>
     </div>
     <h1>Select</h1>
     <div class="container">
-      <jzet-select class="light-mode" placeholder="Please choose"></jzet-select>
+      <jzet-select id="select-1" class="light-mode" placeholder="Please choose"></jzet-select>
+      <jzet-select id="select-2" class="light-mode" value="2"></jzet-select>
+      <jzet-select id="select-3" class="light-mode" placeholder="Please choose" disabled></jzet-select>
       <script>
-        let select = document.querySelector('jzet-select');
-        select.items = [
+        let select1 = document.querySelector('#select-1');
+        select1.items = [
+          { label: 'Value 1', value: 1 },
+          { label: 'Value 2', value: 2 },
+          { label: 'Value 3', value: 3 },
+        ];
+
+        let select2 = document.querySelector('#select-2');
+        select2.items = [
+          { label: 'Value 1', value: 1 },
+          { label: 'Value 2', value: 2 },
+          { label: 'Value 3', value: 3 },
+        ];
+
+        let select3 = document.querySelector('#select-3');
+        select3.items = [
           { label: 'Value 1', value: 1 },
           { label: 'Value 2', value: 2 },
           { label: 'Value 3', value: 3 },
@@ -221,9 +249,14 @@
     </div>
     <h1>Switch</h1>
     <div class="container">
-      <jzet-switch class="light-mode" label="Switch 1" value="false"></jzet-switch>
+      <jzet-switch class="light-mode" appearance="primary" label="Switch Primary" value="false"></jzet-switch>
+      <jzet-switch class="light-mode" appearance="secondary" label="Switch Secondary" value="false"></jzet-switch>
+      <jzet-switch class="light-mode" appearance="tertiary" label="Switch Tertiary" value="false"></jzet-switch>
+      <jzet-switch class="light-mode" label="Switch Disabled" value="false" disabled></jzet-switch>
     </div>
-    <h1>Tags</h1>
     <h1>Textarea</h1>
+    <div class="container">
+      <jzet-textarea class="light-mode" placeholder="This is a Textarea"><p slot="label">Textarea</p></jzet-textarea>
+    </div>
   </body>
 </html>
