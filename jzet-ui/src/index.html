@@ -258,5 +258,51 @@
     <div class="container">
       <jzet-textarea class="light-mode" placeholder="This is a Textarea"><p slot="label">Textarea</p></jzet-textarea>
     </div>
+    <h1>Alert</h1>
+    <jzet-button fill="solid" id="alertButton">Alert</jzet-button>
+    <jzet-alert id="customAlert" class="light-mode">
+      <div slot="icon">
+        <div class="circle"></div>
+      </div>
+      <div slot="title">Alert</div>
+      <div slot="content">This is the body of an alert.</div>
+      <div slot="actions">
+        <jzet-button fill="solid" id="alertButtonClose" appearance="primary" block>Close alert</jzet-button>
+      </div>
+    </jzet-alert>
+    <script>
+      const alertButton = document.querySelector('#alertButton');
+      const alertButtonClose = document.querySelector('#alertButtonClose');
+      const customAlert = document.querySelector('#customAlert');
+      alertButton.addEventListener('click', e => {
+        customAlert.setAttribute('visible', 'true');
+      });
+      alertButtonClose.addEventListener('click', e => {
+        customAlert.removeAttribute('visible');
+      });
+    </script>
+    <h1>Modal</h1>
+    <jzet-button fill="solid" id="modalButton">Modal</jzet-button>
+    <jzet-modal id="customModal" class="light-mode">
+      <div slot="icon">
+        <div class="circle"></div>
+      </div>
+      <div slot="title">Modal</div>
+      <div slot="content">This is the body of an modal. This is the body of an modal. This is the body of an modal. This is the body of an modal.</div>
+      <div slot="actions">
+        <jzet-button fill="solid" id="modalButtonClose" appearance="primary" block>Close modal</jzet-button>
+      </div>
+    </jzet-modal>
+    <script>
+      const modalButton = document.querySelector('#modalButton');
+      const modalButtonClose = document.querySelector('#modalButtonClose');
+      const customModal = document.querySelector('#customModal');
+      modalButton.addEventListener('click', e => {
+        customModal.setAttribute('visible', 'true');
+      });
+      modalButtonClose.addEventListener('click', e => {
+        customModal.removeAttribute('visible');
+      });
+    </script>
   </body>
 </html>

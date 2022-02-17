@@ -1,0 +1,123 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+:host(.dark-mode) {
+  --background-color: #{$dark};
+  --color: #{$on-dark};
+  --backdrop-alpha: 0.2;
+}
+
+:host(.light-mode) {
+  --background-color: #{$light};
+  --color: #{$on-light};
+  --backdrop-alpha: 0.5;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #{get-color-rgba($dark, var(--backdrop-alpha))};
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(22px);
+  cursor: default;
+}
+
+:host([visible]) .backdrop {
+  opacity: 1;
+  pointer-events: all;
+}
+
+:host([visible]) .modal {
+  top: 15vh;
+  opacity: 1;
+  pointer-events: all;
+}
+
+:host([visible]) .close-button {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  margin: 0 1.25rem;
+  position: fixed;
+  top: 10vh;
+  z-index: 10001;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.close-button {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 2vh;
+  right: 2vh;
+  z-index: 10001;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s ease;
+  outline: none;
+  border: none;
+  background-color: var(--background-color);
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem 1.25rem 0.625rem 1.25rem;
+}
+
+.body {
+  max-width: 30rem;
+  padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+}
+
+::slotted(*) {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+::slotted([slot='icon']) {
+  padding: 0 0 0.625rem 0;
+}
+
+::slotted([slot='title']) {
+  color: var(--color);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+::slotted([slot='content']) {
+  color: var(--color);
+  font-size: 1rem;
+}
+
+::slotted([slot='actions']) {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer {
+  padding: 0.625rem 1.25rem 1.25rem 1.25rem;
+}

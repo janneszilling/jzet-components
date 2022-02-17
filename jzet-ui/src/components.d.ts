@@ -7,6 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Color } from "./interface";
 export namespace Components {
+    interface JzetAlert {
+        /**
+          * Sets the alert visible or invisibil
+         */
+        "visible": boolean;
+    }
     interface JzetAvatar {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -111,6 +117,12 @@ export namespace Components {
           * If `true`, the user cannot interact with the item.
          */
         "disabled": boolean;
+    }
+    interface JzetModal {
+        /**
+          * Sets the alert visible or invisibil
+         */
+        "visible": boolean;
     }
     interface JzetPopover {
         /**
@@ -290,6 +302,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLJzetAlertElement extends Components.JzetAlert, HTMLStencilElement {
+    }
+    var HTMLJzetAlertElement: {
+        prototype: HTMLJzetAlertElement;
+        new (): HTMLJzetAlertElement;
+    };
     interface HTMLJzetAvatarElement extends Components.JzetAvatar, HTMLStencilElement {
     }
     var HTMLJzetAvatarElement: {
@@ -337,6 +355,12 @@ declare global {
     var HTMLJzetItemElement: {
         prototype: HTMLJzetItemElement;
         new (): HTMLJzetItemElement;
+    };
+    interface HTMLJzetModalElement extends Components.JzetModal, HTMLStencilElement {
+    }
+    var HTMLJzetModalElement: {
+        prototype: HTMLJzetModalElement;
+        new (): HTMLJzetModalElement;
     };
     interface HTMLJzetPopoverElement extends Components.JzetPopover, HTMLStencilElement {
     }
@@ -393,6 +417,7 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "jzet-alert": HTMLJzetAlertElement;
         "jzet-avatar": HTMLJzetAvatarElement;
         "jzet-badge": HTMLJzetBadgeElement;
         "jzet-button": HTMLJzetButtonElement;
@@ -401,6 +426,7 @@ declare global {
         "jzet-filepicker": HTMLJzetFilepickerElement;
         "jzet-input": HTMLJzetInputElement;
         "jzet-item": HTMLJzetItemElement;
+        "jzet-modal": HTMLJzetModalElement;
         "jzet-popover": HTMLJzetPopoverElement;
         "jzet-radio": HTMLJzetRadioElement;
         "jzet-radio-group": HTMLJzetRadioGroupElement;
@@ -413,6 +439,12 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface JzetAlert {
+        /**
+          * Sets the alert visible or invisibil
+         */
+        "visible"?: boolean;
+    }
     interface JzetAvatar {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -519,6 +551,12 @@ declare namespace LocalJSX {
           * If `true`, the user cannot interact with the item.
          */
         "disabled"?: boolean;
+    }
+    interface JzetModal {
+        /**
+          * Sets the alert visible or invisibil
+         */
+        "visible"?: boolean;
     }
     interface JzetPopover {
         /**
@@ -731,6 +769,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "jzet-alert": JzetAlert;
         "jzet-avatar": JzetAvatar;
         "jzet-badge": JzetBadge;
         "jzet-button": JzetButton;
@@ -739,6 +778,7 @@ declare namespace LocalJSX {
         "jzet-filepicker": JzetFilepicker;
         "jzet-input": JzetInput;
         "jzet-item": JzetItem;
+        "jzet-modal": JzetModal;
         "jzet-popover": JzetPopover;
         "jzet-radio": JzetRadio;
         "jzet-radio-group": JzetRadioGroup;
@@ -754,6 +794,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "jzet-alert": LocalJSX.JzetAlert & JSXBase.HTMLAttributes<HTMLJzetAlertElement>;
             "jzet-avatar": LocalJSX.JzetAvatar & JSXBase.HTMLAttributes<HTMLJzetAvatarElement>;
             "jzet-badge": LocalJSX.JzetBadge & JSXBase.HTMLAttributes<HTMLJzetBadgeElement>;
             "jzet-button": LocalJSX.JzetButton & JSXBase.HTMLAttributes<HTMLJzetButtonElement>;
@@ -762,6 +803,7 @@ declare module "@stencil/core" {
             "jzet-filepicker": LocalJSX.JzetFilepicker & JSXBase.HTMLAttributes<HTMLJzetFilepickerElement>;
             "jzet-input": LocalJSX.JzetInput & JSXBase.HTMLAttributes<HTMLJzetInputElement>;
             "jzet-item": LocalJSX.JzetItem & JSXBase.HTMLAttributes<HTMLJzetItemElement>;
+            "jzet-modal": LocalJSX.JzetModal & JSXBase.HTMLAttributes<HTMLJzetModalElement>;
             "jzet-popover": LocalJSX.JzetPopover & JSXBase.HTMLAttributes<HTMLJzetPopoverElement>;
             "jzet-radio": LocalJSX.JzetRadio & JSXBase.HTMLAttributes<HTMLJzetRadioElement>;
             "jzet-radio-group": LocalJSX.JzetRadioGroup & JSXBase.HTMLAttributes<HTMLJzetRadioGroupElement>;
