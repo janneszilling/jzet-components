@@ -304,5 +304,19 @@
         customModal.removeAttribute('visible');
       });
     </script>
+    <h1>Card</h1>
+    <jzet-card fill="solid" flex-direction="column" class="light-mode">
+      <div slot="start">
+        <h1>This a card.</h1>
+        <p>This is also the first slot called "start".</p>
+      </div>
+      <div slot="middle">
+        <p>This is the middle slot called "middle".</p>
+      </div>
+      <div slot="end">
+        <p>At last but not least there is the end slot called "end".</p>
+        <jzet-button fill="solid" appearance="primary">Card button</jzet-button>
+      </div>
+    </jzet-card>
   </body>
 </html>

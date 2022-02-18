@@ -24,7 +24,7 @@ export class JzetButton {
    * Set to `"minimal"` for a transparent button, to `"outline"` for a transparent
    * button with a border, or to `"solid"`. The default style is `"solid"`
    */
-  @Prop({ reflect: true }) readonly fill?: 'minimal' | 'outline' | 'solid';
+  @Prop({ reflect: true }) readonly fill: 'minimal' | 'outline' | 'solid';
 
   /**
    * Set to `"block"` for a full-width button.
