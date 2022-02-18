@@ -45,7 +45,18 @@ export namespace Components {
         /**
           * Set to `"minimal"` for a transparent button, to `"outline"` for a transparent button with a border, or to `"solid"`. The default style is `"solid"`
          */
-        "fill"?: 'minimal' | 'outline' | 'solid';
+        "fill": 'minimal' | 'outline' | 'solid';
+    }
+    interface JzetCard {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        "fill": 'outline' | 'solid';
+        /**
+          * Sets the flex direction for the card.
+         */
+        "flexDirection"?: 'row' | 'column';
     }
     interface JzetCheckbox {
         /**
@@ -326,6 +337,12 @@ declare global {
         prototype: HTMLJzetButtonElement;
         new (): HTMLJzetButtonElement;
     };
+    interface HTMLJzetCardElement extends Components.JzetCard, HTMLStencilElement {
+    }
+    var HTMLJzetCardElement: {
+        prototype: HTMLJzetCardElement;
+        new (): HTMLJzetCardElement;
+    };
     interface HTMLJzetCheckboxElement extends Components.JzetCheckbox, HTMLStencilElement {
     }
     var HTMLJzetCheckboxElement: {
@@ -421,6 +438,7 @@ declare global {
         "jzet-avatar": HTMLJzetAvatarElement;
         "jzet-badge": HTMLJzetBadgeElement;
         "jzet-button": HTMLJzetButtonElement;
+        "jzet-card": HTMLJzetCardElement;
         "jzet-checkbox": HTMLJzetCheckboxElement;
         "jzet-chip": HTMLJzetChipElement;
         "jzet-filepicker": HTMLJzetFilepickerElement;
@@ -478,6 +496,17 @@ declare namespace LocalJSX {
           * Set to `"minimal"` for a transparent button, to `"outline"` for a transparent button with a border, or to `"solid"`. The default style is `"solid"`
          */
         "fill"?: 'minimal' | 'outline' | 'solid';
+    }
+    interface JzetCard {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Sets the flex direction for the card.
+         */
+        "flexDirection"?: 'row' | 'column';
     }
     interface JzetCheckbox {
         /**
@@ -773,6 +802,7 @@ declare namespace LocalJSX {
         "jzet-avatar": JzetAvatar;
         "jzet-badge": JzetBadge;
         "jzet-button": JzetButton;
+        "jzet-card": JzetCard;
         "jzet-checkbox": JzetCheckbox;
         "jzet-chip": JzetChip;
         "jzet-filepicker": JzetFilepicker;
@@ -798,6 +828,7 @@ declare module "@stencil/core" {
             "jzet-avatar": LocalJSX.JzetAvatar & JSXBase.HTMLAttributes<HTMLJzetAvatarElement>;
             "jzet-badge": LocalJSX.JzetBadge & JSXBase.HTMLAttributes<HTMLJzetBadgeElement>;
             "jzet-button": LocalJSX.JzetButton & JSXBase.HTMLAttributes<HTMLJzetButtonElement>;
+            "jzet-card": LocalJSX.JzetCard & JSXBase.HTMLAttributes<HTMLJzetCardElement>;
             "jzet-checkbox": LocalJSX.JzetCheckbox & JSXBase.HTMLAttributes<HTMLJzetCheckboxElement>;
             "jzet-chip": LocalJSX.JzetChip & JSXBase.HTMLAttributes<HTMLJzetChipElement>;
             "jzet-filepicker": LocalJSX.JzetFilepicker & JSXBase.HTMLAttributes<HTMLJzetFilepickerElement>;

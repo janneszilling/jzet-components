@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+:host(.dark-mode) .solid {
+  background-color: #{$dark};
+}
+
+:host(.light-mode) .solid {
+  background-color: #{$light};
+}
+
+.card {
+  border: 1px solid var(--jz-color-base);
+  border-radius: 0.5rem;
+}
+
+.card-body {
+  display: flex;
+  padding: 1.25rem;
+  font-family: 'Inter', sans-serif;
+}
