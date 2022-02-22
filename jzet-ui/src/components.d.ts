@@ -129,6 +129,50 @@ export namespace Components {
          */
         "disabled": boolean;
     }
+    interface JzetList {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If attribute is set to `"true"` menu is visible.
+         */
+        "visible": boolean;
+    }
+    interface JzetListItem {
+        /**
+          * selected attribute to now which list-item is selected.
+         */
+        "selected": boolean;
+    }
+    interface JzetMenu {
+        /**
+          * Sets the position of the menu in relation to the menu button. Default: `"right"`. Options: `"left"`, `"center"`, `"right"`
+         */
+        "alignMenu": 'left' | 'center' | 'right';
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * Set to `"minimal"` for a transparent button, to `"outline"` for a transparent button with a border, or to `"solid"`. The default style is `"outline"`
+         */
+        "menuButtonFill": "outline";
+        /**
+          * Set a menu icon as string for the menu button. Default: `"->"`;
+         */
+        "menuIcon": string;
+        /**
+          * Set a label text for the menu button. Default: `"Menu"`
+         */
+        "menuLabel": string;
+        /**
+          * If attribute is set to `"true"` menu is visible.
+         */
+        "visible": boolean;
+    }
+    interface JzetMenuItem {
+    }
     interface JzetModal {
         /**
           * Sets the alert visible or invisibil
@@ -373,6 +417,30 @@ declare global {
         prototype: HTMLJzetItemElement;
         new (): HTMLJzetItemElement;
     };
+    interface HTMLJzetListElement extends Components.JzetList, HTMLStencilElement {
+    }
+    var HTMLJzetListElement: {
+        prototype: HTMLJzetListElement;
+        new (): HTMLJzetListElement;
+    };
+    interface HTMLJzetListItemElement extends Components.JzetListItem, HTMLStencilElement {
+    }
+    var HTMLJzetListItemElement: {
+        prototype: HTMLJzetListItemElement;
+        new (): HTMLJzetListItemElement;
+    };
+    interface HTMLJzetMenuElement extends Components.JzetMenu, HTMLStencilElement {
+    }
+    var HTMLJzetMenuElement: {
+        prototype: HTMLJzetMenuElement;
+        new (): HTMLJzetMenuElement;
+    };
+    interface HTMLJzetMenuItemElement extends Components.JzetMenuItem, HTMLStencilElement {
+    }
+    var HTMLJzetMenuItemElement: {
+        prototype: HTMLJzetMenuItemElement;
+        new (): HTMLJzetMenuItemElement;
+    };
     interface HTMLJzetModalElement extends Components.JzetModal, HTMLStencilElement {
     }
     var HTMLJzetModalElement: {
@@ -444,6 +512,10 @@ declare global {
         "jzet-filepicker": HTMLJzetFilepickerElement;
         "jzet-input": HTMLJzetInputElement;
         "jzet-item": HTMLJzetItemElement;
+        "jzet-list": HTMLJzetListElement;
+        "jzet-list-item": HTMLJzetListItemElement;
+        "jzet-menu": HTMLJzetMenuElement;
+        "jzet-menu-item": HTMLJzetMenuItemElement;
         "jzet-modal": HTMLJzetModalElement;
         "jzet-popover": HTMLJzetPopoverElement;
         "jzet-radio": HTMLJzetRadioElement;
@@ -580,6 +652,54 @@ declare namespace LocalJSX {
           * If `true`, the user cannot interact with the item.
          */
         "disabled"?: boolean;
+    }
+    interface JzetList {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * If attribute is set to `"true"` menu is visible.
+         */
+        "visible"?: boolean;
+    }
+    interface JzetListItem {
+        /**
+          * Event emits list-item element.
+         */
+        "onItemSelected"?: (event: CustomEvent<any>) => void;
+        /**
+          * selected attribute to now which list-item is selected.
+         */
+        "selected"?: boolean;
+    }
+    interface JzetMenu {
+        /**
+          * Sets the position of the menu in relation to the menu button. Default: `"right"`. Options: `"left"`, `"center"`, `"right"`
+         */
+        "alignMenu"?: 'left' | 'center' | 'right';
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        /**
+          * Set to `"minimal"` for a transparent button, to `"outline"` for a transparent button with a border, or to `"solid"`. The default style is `"outline"`
+         */
+        "menuButtonFill"?: "outline";
+        /**
+          * Set a menu icon as string for the menu button. Default: `"->"`;
+         */
+        "menuIcon"?: string;
+        /**
+          * Set a label text for the menu button. Default: `"Menu"`
+         */
+        "menuLabel"?: string;
+        /**
+          * If attribute is set to `"true"` menu is visible.
+         */
+        "visible"?: boolean;
+    }
+    interface JzetMenuItem {
     }
     interface JzetModal {
         /**
@@ -808,6 +928,10 @@ declare namespace LocalJSX {
         "jzet-filepicker": JzetFilepicker;
         "jzet-input": JzetInput;
         "jzet-item": JzetItem;
+        "jzet-list": JzetList;
+        "jzet-list-item": JzetListItem;
+        "jzet-menu": JzetMenu;
+        "jzet-menu-item": JzetMenuItem;
         "jzet-modal": JzetModal;
         "jzet-popover": JzetPopover;
         "jzet-radio": JzetRadio;
@@ -834,6 +958,10 @@ declare module "@stencil/core" {
             "jzet-filepicker": LocalJSX.JzetFilepicker & JSXBase.HTMLAttributes<HTMLJzetFilepickerElement>;
             "jzet-input": LocalJSX.JzetInput & JSXBase.HTMLAttributes<HTMLJzetInputElement>;
             "jzet-item": LocalJSX.JzetItem & JSXBase.HTMLAttributes<HTMLJzetItemElement>;
+            "jzet-list": LocalJSX.JzetList & JSXBase.HTMLAttributes<HTMLJzetListElement>;
+            "jzet-list-item": LocalJSX.JzetListItem & JSXBase.HTMLAttributes<HTMLJzetListItemElement>;
+            "jzet-menu": LocalJSX.JzetMenu & JSXBase.HTMLAttributes<HTMLJzetMenuElement>;
+            "jzet-menu-item": LocalJSX.JzetMenuItem & JSXBase.HTMLAttributes<HTMLJzetMenuItemElement>;
             "jzet-modal": LocalJSX.JzetModal & JSXBase.HTMLAttributes<HTMLJzetModalElement>;
             "jzet-popover": LocalJSX.JzetPopover & JSXBase.HTMLAttributes<HTMLJzetPopoverElement>;
             "jzet-radio": LocalJSX.JzetRadio & JSXBase.HTMLAttributes<HTMLJzetRadioElement>;
