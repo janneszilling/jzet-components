@@ -1,0 +1,53 @@
+:host {
+  display: inline-block;
+}
+
+:host(.dark-mode) {
+  --border-color: #{get-color-rgba($light, 0.1)};
+  --background-color: #{$dark};
+  --background-hover: var(--jz-color-darken);
+  --color: #{$on-dark};
+}
+
+:host(.light-mode) {
+  --border-color: #{get-color-rgba($dark, 0.1)};
+  --background-color: #{$light};
+  --background-hover: var(--jz-color-lighten);
+  --color: #{$on-light};
+}
+
+:host([visible]) .list {
+  opacity: 1;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.list {
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+  list-style: none;
+  position: relative;
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+::slotted(*) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  color: var(--color);
+}
+
+::slotted(:first-child) {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+::slotted(:last-child) {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}

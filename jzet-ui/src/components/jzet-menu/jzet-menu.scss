@@ -1,0 +1,55 @@
+:host {
+  display: inline-block;
+}
+
+:host(.dark-mode) {
+  --border-color: #{get-color-rgba($light, 0.1)};
+  --background-color: #{$dark};
+  --color: #{$on-dark};
+}
+
+:host(.light-mode) {
+  --border-color: #{get-color-rgba($dark, 0.1)};
+  --background-color: #{$light};
+  --color: #{$on-light};
+}
+
+.menu-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+:host([visible]) .menu {
+  opacity: 1;
+  margin: 3.203rem 0 0 0;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.menu {
+  margin: 2rem 0 0 0;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+  list-style: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10003;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.menu-label {
+  display: flex;
+}
+
+.menu-icon {
+  margin-left: 0.25rem;
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+}
+
+:host([visible]) .menu-icon {
+  transform: rotate(90deg);
+}

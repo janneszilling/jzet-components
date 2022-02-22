@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+:host(.dark-mode) {
+  --background-hover: var(--jz-color-darken);
+}
+
+:host(.light-mode) {
+  --background-hover: var(--jz-color-lighten);
+}
+
+:host([selected]) {
+  background-color: var(--background-hover);
+}
