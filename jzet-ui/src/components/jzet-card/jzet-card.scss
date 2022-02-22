@@ -4,10 +4,12 @@
 
 :host(.dark-mode) .solid {
   background-color: #{$dark};
+  --color: #{$on-dark};
 }
 
 :host(.light-mode) .solid {
   background-color: #{$light};
+  --color: #{$on-light};
 }
 
 .card {
@@ -19,4 +21,5 @@
   display: flex;
   padding: 1.25rem;
   font-family: 'Inter', sans-serif;
+  color: var(--color);
 }

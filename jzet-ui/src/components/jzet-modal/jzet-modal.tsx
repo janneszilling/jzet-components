@@ -26,14 +26,15 @@ export class JzetModal {
     this.visible && event.target === document.body && ScrollHandler.cancelScrollingKeyFilter(event);
   }
 
-  public closeModal = () => {
+  public closeModal = ev => {
+    ev.preventDefault();
     this.visible = false;
   };
   render() {
     return (
       <Host visible={this.visible}>
-        <div class="backdrop" onClick={this.closeModal.bind(this)}></div>
-        <button class="close-button" onClick={this.closeModal}></button>
+        <div class="backdrop" onClick={e => this.closeModal(e)}></div>
+        <button class="close-button" onClick={e => this.closeModal(e)}></button>
         <div class="modal">
           <div class="header">
             <slot name="icon"></slot>
