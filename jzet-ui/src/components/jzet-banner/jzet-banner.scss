@@ -1,0 +1,30 @@
+:host {
+  width: 100%;
+  height: 3.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--jz-color-base);
+  color: var(--jz-color-contrast);
+  font-size: 0.875rem;
+  font-family: 'Inter', sans-serif;
+}
+
+::slotted(*) {
+  max-width: 18.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon-button {
+  width: 21px;
+  height: 21px;
+  margin: 0 0 0 1.25rem;
+  padding: 0;
+  outline: none;
+  background: var(--jz-color-contrast);
+  border: none;
+  border-radius: 50%;
+  display: block;
+}

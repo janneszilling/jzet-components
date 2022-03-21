@@ -363,5 +363,26 @@
     </jzet-list>
     <h1>Date & Time</h1>
     <h1>Tabs</h1>
+    <h1>Banner</h1>
+    <jzet-banner>This is a Banner with text. 🧑🏼‍💻 </jzet-banner>
+    <h1>Navbar</h1>
+    <jzet-navbar class="light-mode">
+      <div slot="start">Menu</div>
+      <div slot="logo">Navbar</div>
+      <div slot="end">
+        <jzet-button fill="solid" id="navbar-button">Export Theme</jzet-button>
+        Light
+        <jzet-switch class="light-mode" id="navbar-switch"></jzet-switch>
+        Dark
+      </div>
+    </jzet-navbar>
+    <style>
+      #navbar-button {
+        margin: 0 1.25rem;
+      }
+      #navbar-switch {
+        margin: 0 0.625rem;
+      }
+    </style>
   </body>
 </html>
