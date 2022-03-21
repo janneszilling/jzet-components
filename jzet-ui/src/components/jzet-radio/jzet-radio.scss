@@ -3,17 +3,19 @@
 }
 
 :host(.dark-mode) {
+  --background-color: #{$dark};
   --border-color: #{get-color-rgba($light, 0.1)};
   --color: #{$on-dark};
 }
 
 :host(.light-mode) {
+  --background-color: #{$light};
   --border-color: #{get-color-rgba($dark, 0.1)};
   --color: #{$on-light};
 }
 
 :host(.radio-disabled) .radio-button {
-  --background: transparent;
+  --background-color: #{$light-disabled};
   --border-color: #{$light-disabled};
   --border-active: #{$light-disabled};
   cursor: default;
@@ -47,6 +49,7 @@
   border-width: 1px;
   border-color: var(--border-color);
   border-radius: 50%;
+  background: var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;

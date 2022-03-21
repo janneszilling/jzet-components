@@ -10,17 +10,14 @@
   --switch__indicator-background-hover: var(--jz-color-shade);
 
   --switch__indicator-border-width: 2px;
-  --switch__indicator-width: calc(1.375rem + var(--switch__indicator-border-width));
-  --switch__indicator-height: calc(1.375rem + var(--switch__indicator-border-width));
+  --switch__indicator-width: calc(1.5rem + var(--switch__indicator-border-width));
+  --switch__indicator-height: calc(1.5rem + var(--switch__indicator-border-width));
 
   display: inline-block;
-  box-sizing: border-box;
   user-select: none;
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
+  *::before {
+    box-sizing: border-box;
   }
 }
 

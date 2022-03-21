@@ -29,6 +29,12 @@ export namespace Components {
         "appearance"?: Color;
         "form"?: 'circle' | 'pill';
     }
+    interface JzetBanner {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+    }
     interface JzetButton {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -81,6 +87,8 @@ export namespace Components {
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
          */
         "appearance"?: Color;
+    }
+    interface JzetDatepicker {
     }
     interface JzetFilepicker {
         /**
@@ -178,6 +186,12 @@ export namespace Components {
           * Sets the alert visible or invisibil
          */
         "visible": boolean;
+    }
+    interface JzetNavbar {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
     }
     interface JzetPopover {
         /**
@@ -375,6 +389,12 @@ declare global {
         prototype: HTMLJzetBadgeElement;
         new (): HTMLJzetBadgeElement;
     };
+    interface HTMLJzetBannerElement extends Components.JzetBanner, HTMLStencilElement {
+    }
+    var HTMLJzetBannerElement: {
+        prototype: HTMLJzetBannerElement;
+        new (): HTMLJzetBannerElement;
+    };
     interface HTMLJzetButtonElement extends Components.JzetButton, HTMLStencilElement {
     }
     var HTMLJzetButtonElement: {
@@ -398,6 +418,12 @@ declare global {
     var HTMLJzetChipElement: {
         prototype: HTMLJzetChipElement;
         new (): HTMLJzetChipElement;
+    };
+    interface HTMLJzetDatepickerElement extends Components.JzetDatepicker, HTMLStencilElement {
+    }
+    var HTMLJzetDatepickerElement: {
+        prototype: HTMLJzetDatepickerElement;
+        new (): HTMLJzetDatepickerElement;
     };
     interface HTMLJzetFilepickerElement extends Components.JzetFilepicker, HTMLStencilElement {
     }
@@ -446,6 +472,12 @@ declare global {
     var HTMLJzetModalElement: {
         prototype: HTMLJzetModalElement;
         new (): HTMLJzetModalElement;
+    };
+    interface HTMLJzetNavbarElement extends Components.JzetNavbar, HTMLStencilElement {
+    }
+    var HTMLJzetNavbarElement: {
+        prototype: HTMLJzetNavbarElement;
+        new (): HTMLJzetNavbarElement;
     };
     interface HTMLJzetPopoverElement extends Components.JzetPopover, HTMLStencilElement {
     }
@@ -505,10 +537,12 @@ declare global {
         "jzet-alert": HTMLJzetAlertElement;
         "jzet-avatar": HTMLJzetAvatarElement;
         "jzet-badge": HTMLJzetBadgeElement;
+        "jzet-banner": HTMLJzetBannerElement;
         "jzet-button": HTMLJzetButtonElement;
         "jzet-card": HTMLJzetCardElement;
         "jzet-checkbox": HTMLJzetCheckboxElement;
         "jzet-chip": HTMLJzetChipElement;
+        "jzet-datepicker": HTMLJzetDatepickerElement;
         "jzet-filepicker": HTMLJzetFilepickerElement;
         "jzet-input": HTMLJzetInputElement;
         "jzet-item": HTMLJzetItemElement;
@@ -517,6 +551,7 @@ declare global {
         "jzet-menu": HTMLJzetMenuElement;
         "jzet-menu-item": HTMLJzetMenuItemElement;
         "jzet-modal": HTMLJzetModalElement;
+        "jzet-navbar": HTMLJzetNavbarElement;
         "jzet-popover": HTMLJzetPopoverElement;
         "jzet-radio": HTMLJzetRadioElement;
         "jzet-radio-group": HTMLJzetRadioGroupElement;
@@ -550,6 +585,12 @@ declare namespace LocalJSX {
          */
         "appearance"?: Color;
         "form"?: 'circle' | 'pill';
+    }
+    interface JzetBanner {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
     }
     interface JzetButton {
         /**
@@ -604,6 +645,8 @@ declare namespace LocalJSX {
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
          */
         "appearance"?: Color;
+    }
+    interface JzetDatepicker {
     }
     interface JzetFilepicker {
         /**
@@ -706,6 +749,12 @@ declare namespace LocalJSX {
           * Sets the alert visible or invisibil
          */
         "visible"?: boolean;
+    }
+    interface JzetNavbar {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
     }
     interface JzetPopover {
         /**
@@ -921,10 +970,12 @@ declare namespace LocalJSX {
         "jzet-alert": JzetAlert;
         "jzet-avatar": JzetAvatar;
         "jzet-badge": JzetBadge;
+        "jzet-banner": JzetBanner;
         "jzet-button": JzetButton;
         "jzet-card": JzetCard;
         "jzet-checkbox": JzetCheckbox;
         "jzet-chip": JzetChip;
+        "jzet-datepicker": JzetDatepicker;
         "jzet-filepicker": JzetFilepicker;
         "jzet-input": JzetInput;
         "jzet-item": JzetItem;
@@ -933,6 +984,7 @@ declare namespace LocalJSX {
         "jzet-menu": JzetMenu;
         "jzet-menu-item": JzetMenuItem;
         "jzet-modal": JzetModal;
+        "jzet-navbar": JzetNavbar;
         "jzet-popover": JzetPopover;
         "jzet-radio": JzetRadio;
         "jzet-radio-group": JzetRadioGroup;
@@ -951,10 +1003,12 @@ declare module "@stencil/core" {
             "jzet-alert": LocalJSX.JzetAlert & JSXBase.HTMLAttributes<HTMLJzetAlertElement>;
             "jzet-avatar": LocalJSX.JzetAvatar & JSXBase.HTMLAttributes<HTMLJzetAvatarElement>;
             "jzet-badge": LocalJSX.JzetBadge & JSXBase.HTMLAttributes<HTMLJzetBadgeElement>;
+            "jzet-banner": LocalJSX.JzetBanner & JSXBase.HTMLAttributes<HTMLJzetBannerElement>;
             "jzet-button": LocalJSX.JzetButton & JSXBase.HTMLAttributes<HTMLJzetButtonElement>;
             "jzet-card": LocalJSX.JzetCard & JSXBase.HTMLAttributes<HTMLJzetCardElement>;
             "jzet-checkbox": LocalJSX.JzetCheckbox & JSXBase.HTMLAttributes<HTMLJzetCheckboxElement>;
             "jzet-chip": LocalJSX.JzetChip & JSXBase.HTMLAttributes<HTMLJzetChipElement>;
+            "jzet-datepicker": LocalJSX.JzetDatepicker & JSXBase.HTMLAttributes<HTMLJzetDatepickerElement>;
             "jzet-filepicker": LocalJSX.JzetFilepicker & JSXBase.HTMLAttributes<HTMLJzetFilepickerElement>;
             "jzet-input": LocalJSX.JzetInput & JSXBase.HTMLAttributes<HTMLJzetInputElement>;
             "jzet-item": LocalJSX.JzetItem & JSXBase.HTMLAttributes<HTMLJzetItemElement>;
@@ -963,6 +1017,7 @@ declare module "@stencil/core" {
             "jzet-menu": LocalJSX.JzetMenu & JSXBase.HTMLAttributes<HTMLJzetMenuElement>;
             "jzet-menu-item": LocalJSX.JzetMenuItem & JSXBase.HTMLAttributes<HTMLJzetMenuItemElement>;
             "jzet-modal": LocalJSX.JzetModal & JSXBase.HTMLAttributes<HTMLJzetModalElement>;
+            "jzet-navbar": LocalJSX.JzetNavbar & JSXBase.HTMLAttributes<HTMLJzetNavbarElement>;
             "jzet-popover": LocalJSX.JzetPopover & JSXBase.HTMLAttributes<HTMLJzetPopoverElement>;
             "jzet-radio": LocalJSX.JzetRadio & JSXBase.HTMLAttributes<HTMLJzetRadioElement>;
             "jzet-radio-group": LocalJSX.JzetRadioGroup & JSXBase.HTMLAttributes<HTMLJzetRadioGroupElement>;

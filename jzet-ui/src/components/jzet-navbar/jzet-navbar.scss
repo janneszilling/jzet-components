@@ -1,0 +1,44 @@
+:host {
+  width: 100%;
+  height: 3.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-bottom);
+  color: var(--color);
+  font-family: 'Inter', sans-serif;
+}
+
+:host(.dark-mode) {
+  --border-bottom: #{get-color-rgba($light, 0.1)};
+  --color: #{$on-dark};
+}
+
+:host(.light-mode) {
+  --border-bottom: #{get-color-rgba($dark, 0.1)};
+  --color: #{$on-light};
+}
+
+.left-side {
+  display: flex;
+}
+
+::slotted(*) {
+  display: flex;
+  align-items: center;
+}
+
+::slotted([slot='start']) {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+::slotted([slot='logo']) {
+  justify-self: center;
+}
+
+::slotted([slot='end']) {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}

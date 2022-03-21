@@ -138,11 +138,11 @@
   font-size: 1rem;
   color: var(--color);
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.5s ease;
 }
 
 .icon-arrow--expanded {
-  transform: rotate(90deg);
+  transform: rotate(45deg);
 }
 
 .icon-arrow--collapsed {

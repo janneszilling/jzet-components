@@ -7,11 +7,13 @@
 }
 
 :host(.dark-mode) {
+  --background-color: #{$dark};
   --border-color: #{get-color-rgba($light, 0.1)};
   --color: #{$on-dark};
 }
 
 :host(.light-mode) {
+  --background-color: #{$light};
   --border-color: #{get-color-rgba($dark, 0.1)};
   --color: #{$on-light};
 }
@@ -26,10 +28,11 @@
   cursor: default;
   --border-color: #{$light-disabled};
   --border-active: #{$light-disabled};
+  --background-color: #{$light-disabled};
 }
 
 :host(.checkbox-disabled) .checkbox input:checked + .checkmark {
-  --background: #{$light-disabled};
+  --background-color: #{$light-disabled};
   --border-color: #{$light-disabled};
   --border-active: #{$light-disabled};
 }
@@ -45,7 +48,7 @@
 }
 
 .checkbox .checkmark {
-  --background: tansparent;
+  --background: var(--background-color);
   --border-active: var(--jz-color-base);
   width: 1.375rem;
   height: 1.375rem;
