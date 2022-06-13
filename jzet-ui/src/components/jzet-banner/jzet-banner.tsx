@@ -25,9 +25,9 @@ export class JzetBanner {
     return (
       <Host class={{ [`jz-color-${appearance}`]: true }}>
         <slot></slot>
-        <button class="icon-button" onClick={event => this.close(event)}>
-          <span class="icon-line"></span>
-          <span class="icon-line"></span>
+        <button class="close-button" onClick={event => this.close(event)}>
+          <span></span>
+          <span></span>
         </button>
       </Host>
     );

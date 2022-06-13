@@ -193,6 +193,19 @@ export namespace Components {
          */
         "appearance"?: Color;
     }
+    interface JzetNavbarMenu {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        "closeIcon": string;
+        /**
+          * If attribute is set to `"true"` menu is visible.
+         */
+        "visible": boolean;
+    }
+    interface JzetNavbarMenuItem {
+    }
     interface JzetPopover {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
@@ -479,6 +492,18 @@ declare global {
         prototype: HTMLJzetNavbarElement;
         new (): HTMLJzetNavbarElement;
     };
+    interface HTMLJzetNavbarMenuElement extends Components.JzetNavbarMenu, HTMLStencilElement {
+    }
+    var HTMLJzetNavbarMenuElement: {
+        prototype: HTMLJzetNavbarMenuElement;
+        new (): HTMLJzetNavbarMenuElement;
+    };
+    interface HTMLJzetNavbarMenuItemElement extends Components.JzetNavbarMenuItem, HTMLStencilElement {
+    }
+    var HTMLJzetNavbarMenuItemElement: {
+        prototype: HTMLJzetNavbarMenuItemElement;
+        new (): HTMLJzetNavbarMenuItemElement;
+    };
     interface HTMLJzetPopoverElement extends Components.JzetPopover, HTMLStencilElement {
     }
     var HTMLJzetPopoverElement: {
@@ -552,6 +577,8 @@ declare global {
         "jzet-menu-item": HTMLJzetMenuItemElement;
         "jzet-modal": HTMLJzetModalElement;
         "jzet-navbar": HTMLJzetNavbarElement;
+        "jzet-navbar-menu": HTMLJzetNavbarMenuElement;
+        "jzet-navbar-menu-item": HTMLJzetNavbarMenuItemElement;
         "jzet-popover": HTMLJzetPopoverElement;
         "jzet-radio": HTMLJzetRadioElement;
         "jzet-radio-group": HTMLJzetRadioGroupElement;
@@ -755,6 +782,19 @@ declare namespace LocalJSX {
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
          */
         "appearance"?: Color;
+    }
+    interface JzetNavbarMenu {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
+         */
+        "appearance"?: Color;
+        "closeIcon"?: string;
+        /**
+          * If attribute is set to `"true"` menu is visible.
+         */
+        "visible"?: boolean;
+    }
+    interface JzetNavbarMenuItem {
     }
     interface JzetPopover {
         /**
@@ -985,6 +1025,8 @@ declare namespace LocalJSX {
         "jzet-menu-item": JzetMenuItem;
         "jzet-modal": JzetModal;
         "jzet-navbar": JzetNavbar;
+        "jzet-navbar-menu": JzetNavbarMenu;
+        "jzet-navbar-menu-item": JzetNavbarMenuItem;
         "jzet-popover": JzetPopover;
         "jzet-radio": JzetRadio;
         "jzet-radio-group": JzetRadioGroup;
@@ -1018,6 +1060,8 @@ declare module "@stencil/core" {
             "jzet-menu-item": LocalJSX.JzetMenuItem & JSXBase.HTMLAttributes<HTMLJzetMenuItemElement>;
             "jzet-modal": LocalJSX.JzetModal & JSXBase.HTMLAttributes<HTMLJzetModalElement>;
             "jzet-navbar": LocalJSX.JzetNavbar & JSXBase.HTMLAttributes<HTMLJzetNavbarElement>;
+            "jzet-navbar-menu": LocalJSX.JzetNavbarMenu & JSXBase.HTMLAttributes<HTMLJzetNavbarMenuElement>;
+            "jzet-navbar-menu-item": LocalJSX.JzetNavbarMenuItem & JSXBase.HTMLAttributes<HTMLJzetNavbarMenuItemElement>;
             "jzet-popover": LocalJSX.JzetPopover & JSXBase.HTMLAttributes<HTMLJzetPopoverElement>;
             "jzet-radio": LocalJSX.JzetRadio & JSXBase.HTMLAttributes<HTMLJzetRadioElement>;
             "jzet-radio-group": LocalJSX.JzetRadioGroup & JSXBase.HTMLAttributes<HTMLJzetRadioGroupElement>;

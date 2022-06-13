@@ -17,8 +17,8 @@ export class JzetNavbar {
     const { appearance } = this;
     return (
       <Host class={{ [`jz-color-${appearance}`]: true }}>
-        <div class="left-side">
-          <slot name="start"></slot>
+        <slot name="start"></slot>
+        <div class="center">
           <slot name="logo"></slot>
         </div>
         <slot name="end"></slot>
