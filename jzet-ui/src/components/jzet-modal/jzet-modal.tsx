@@ -34,7 +34,10 @@ export class JzetModal {
     return (
       <Host visible={this.visible}>
         <div class="backdrop" onClick={e => this.closeModal(e)}></div>
-        <button class="close-button" onClick={e => this.closeModal(e)}></button>
+        <button class="close-button" onClick={e => this.closeModal(e)}>
+          <span></span>
+          <span></span>
+        </button>
         <div class="modal">
           <div class="header">
             <slot name="icon"></slot>

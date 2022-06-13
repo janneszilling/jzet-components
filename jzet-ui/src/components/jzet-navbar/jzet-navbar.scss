@@ -8,6 +8,7 @@
   border-bottom: 1px solid var(--border-bottom);
   color: var(--color);
   font-family: 'Inter', sans-serif;
+  position: relative;
 }
 
 :host(.dark-mode) {
@@ -20,8 +21,11 @@
   --color: #{$on-light};
 }
 
-.left-side {
-  display: flex;
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 ::slotted(*) {

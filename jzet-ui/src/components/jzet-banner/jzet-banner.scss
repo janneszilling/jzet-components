@@ -1,6 +1,6 @@
 :host {
   width: 100%;
-  height: 3.375rem;
+  height: 2.625rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,14 +17,29 @@
   text-overflow: ellipsis;
 }
 
-.icon-button {
-  width: 21px;
-  height: 21px;
+.close-button {
+  width: 1.313rem;
+  height: 1.313rem;
   margin: 0 0 0 1.25rem;
   padding: 0;
   outline: none;
-  background: var(--jz-color-contrast);
   border: none;
+  background: none;
   border-radius: 50%;
+  cursor: pointer;
+  transform: rotate(45deg);
   display: block;
+}
+
+.close-button span {
+  width: 1.313rem;
+  height: 1px;
+  background: var(--jz-color-contrast);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
 }

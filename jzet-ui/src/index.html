@@ -168,13 +168,13 @@
         ><jzet-avatar slot="left" name="Jannes Zilling"></jzet-avatar>
         <div id="item-h1-p" slot="right">
           <h1>Jannes Zilling</h1>
-          <p>Creator of this Project.</p>
+          <p>Developer of this Project.</p>
         </div></jzet-item
       >
       <jzet-item
         ><jzet-avatar slot="left" name="Jannes Zilling"></jzet-avatar>
         <div id="item-h1-p" slot="right">
-          <p>Creator of this Project.</p>
+          <p>Developer of this Project.</p>
           <h1>Jannes Zilling</h1>
         </div></jzet-item
       >
@@ -337,7 +337,7 @@
           ><jzet-avatar slot="left" name="Jannes Zilling"></jzet-avatar>
           <div id="item-h1-p" slot="right">
             <h1>Jannes Zilling</h1>
-            <p>Creator of this Project.</p>
+            <p>Developer of this Project.</p>
           </div></jzet-item
         >
       </jzet-list-item>
@@ -346,7 +346,7 @@
           ><jzet-avatar slot="left" name="Jannes Zilling"></jzet-avatar>
           <div id="item-h1-p" slot="right">
             <h1>Jannes Zilling</h1>
-            <p>Creator of this Project.</p>
+            <p>Developer of this Project.</p>
           </div></jzet-item
         >
         <jzet-button fill="solid">Link 1</jzet-button>
@@ -356,7 +356,7 @@
           ><jzet-avatar slot="left" name="Jannes Zilling"></jzet-avatar>
           <div id="item-h1-p" slot="right">
             <h1>Jannes Zilling</h1>
-            <p>Creator of this Project.</p>
+            <p>Developer of this Project.</p>
           </div></jzet-item
         >
       </jzet-list-item>
@@ -367,7 +367,14 @@
     <jzet-banner>This is a Banner with text. 🧑🏼‍💻 </jzet-banner>
     <h1>Navbar</h1>
     <jzet-navbar class="light-mode">
-      <div slot="start">Menu</div>
+      <div slot="start">
+        <jzet-navbar-menu class="light-mode">
+          <jzet-navbar-menu-item> UI Components </jzet-navbar-menu-item>
+          <jzet-navbar-menu-item> UI Builder </jzet-navbar-menu-item>
+          <jzet-navbar-menu-item> Experience -></jzet-navbar-menu-item>
+          <jzet-navbar-menu-item> News </jzet-navbar-menu-item>
+        </jzet-navbar-menu>
+      </div>
       <div slot="logo">Navbar</div>
       <div slot="end">
         <jzet-button fill="solid" id="navbar-button">Export Theme</jzet-button>
@@ -382,6 +389,9 @@
       }
       #navbar-switch {
         margin: 0 0.625rem;
+      }
+      jzet-navbar-menu-item {
+        font-size: 3rem;
       }
     </style>
   </body>
